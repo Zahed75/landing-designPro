@@ -67,7 +67,7 @@ export class App {
 
   activeToolIndex: number | null = null;
 
-  public carouselCards = [
+  public carouselCards: Array<{image: string, icon: string, label: string, title: string, description: string}> = [
     {
       image: '/assets/calendar.png',
       icon: '/assets/icons/google-calendar.svg',
@@ -87,7 +87,7 @@ export class App {
       icon: '/assets/icons/google-drive.svg',
       label: 'Drive',
       title: 'Securely store your data in the cloud',
-      description: 'Store your data in Google's security-by-design cloud infrastructure, with up to 5TB per user.'
+      description: 'Store your data in Google\'s security-by-design cloud infrastructure, with up to 5TB per user.'
     },
     {
       image: '/assets/meet.png',
@@ -104,7 +104,7 @@ export class App {
       description: 'Craft compelling content, generate data insights, and conduct deep research with the help of AI.'
     }
   ];
-  public carouselIndex = 0;
+  public carouselIndex: number = 0;
 
   public get visibleCarouselCards() {
     return this.carouselCards.slice(this.carouselIndex, this.carouselIndex + 3);
