@@ -69,25 +69,22 @@
       </div>
     </section>
 
-    <!-- Value Cards -->
+    <!-- Value Cards (Carousel Style) -->
     <section class="bg-gradient-to-b from-[#f8fafc] to-[#fff] py-16 border-b border-[#e0e3e7]">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-[#e0e3e7]">
-            <img src="/assets/email.png" alt="Email" class="h-12 mb-6">
-            <h3 class="font-semibold text-xl mb-2 text-[#1a202c]">Look professional with custom email</h3>
-            <p class="text-[#5f6368]">Send email as you&#64;yourcompany and build your brand with Gmail.</p>
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#202124]">One subscription. So much premium value.</h2>
+        <div class="relative flex items-center justify-center">
+          <!-- Carousel Arrows -->
+          <button (click)="prevCarousel()" [disabled]="carouselIndex === 0" class="absolute -left-16 top-1/2 -translate-y-1/2 bg-white border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow hover:bg-[#f5faff] z-10 disabled:opacity-50 disabled:cursor-not-allowed"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+          <div class="flex gap-6">
+            <div *ngFor="let card of visibleCarouselCards" class="carousel-card min-w-[340px] bg-white rounded-2xl border border-[#e0e3e7] shadow p-6 flex flex-col items-start">
+              <img [src]="card.image" [alt]="card.label" class="h-32 w-full object-contain mb-4">
+              <div class="flex items-center mb-2"><img [src]="card.icon" class="w-5 h-5 mr-2"> <span class="text-xs font-medium text-[#5f6368]">{{card.label}}</span></div>
+              <h3 class="font-semibold text-lg mb-1 text-[#1a202c]">{{card.title}}</h3>
+              <p class="text-[#5f6368] text-sm">{{card.description}}</p>
+            </div>
           </div>
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-[#e0e3e7]">
-            <img src="/assets/calendar.png" alt="Calendar" class="h-12 mb-6">
-            <h3 class="font-semibold text-xl mb-2 text-[#1a202c]">Simplify booking with appointment scheduling</h3>
-            <p class="text-[#5f6368]">Let customers book time with you directly while Google Calendar sets the agenda.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-[#e0e3e7]">
-            <img src="/assets/contract.png" alt="Contract" class="h-12 mb-6">
-            <h3 class="font-semibold text-xl mb-2 text-[#1a202c]">Streamline contract management</h3>
-            <p class="text-[#5f6368]">Digitally sign and manage agreements, collaborate, and store documents securely.</p>
-          </div>
+          <button (click)="nextCarousel()" [disabled]="carouselIndex >= carouselCards.length - 3" class="absolute -right-16 top-1/2 -translate-y-1/2 bg-white border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow hover:bg-[#f5faff] z-10 disabled:opacity-50 disabled:cursor-not-allowed"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
     </section>
