@@ -93,7 +93,7 @@ export class Header {
     {
       column: 'DISCOVER',
       items: [
-        { title: 'Blog', description: 'Latest product news and stories', href: '#' },
+        { title: 'Blog', description: 'Latest product news and stories', href: '/blog' },
         { title: 'Customer stories', description: 'Case studies and videos', href: '#' }
       ]
     },

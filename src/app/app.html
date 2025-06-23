@@ -1,6 +1,7 @@
 <div class="min-h-screen flex flex-col bg-[#fff] font-sans">
   <app-header></app-header>
   <main class="flex-grow">
+    <router-outlet></router-outlet>
     <!-- Hero Section -->
     <section class="bg-gradient-to-b from-[#f8fafc] to-[#fff] pt-24 pb-16 border-b border-[#e0e3e7]">
       <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
@@ -70,21 +71,26 @@
     </section>
 
     <!-- Value Cards (Carousel Style) -->
-    <section class="bg-gradient-to-b from-[#f8fafc] to-[#fff] py-16 border-b border-[#e0e3e7]">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#202124]">One subscription. So much premium value.</h2>
-        <div class="relative flex items-center justify-center">
+    <section class="relative bg-gradient-to-br from-[#f8fafc] via-[#e3f0ff] to-[#fff] py-24 border-b border-[#e0e3e7] overflow-hidden animate-fade-in-up">
+      <!-- Floating Gradient Shapes -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[320px] bg-gradient-to-tr from-[#1a73e8]/20 via-[#e3f0ff]/60 to-[#fff]/0 rounded-full blur-3xl opacity-60 pointer-events-none animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-[#1a73e8]/10 via-[#f8fafc]/60 to-[#fff]/0 rounded-full blur-2xl opacity-40 pointer-events-none animate-float2"></div>
+      <div class="max-w-5xl mx-auto px-4 flex flex-col items-center relative z-10">
+        <img src="/assets/icons/logo.jpg" alt="Logo" class="h-16 w-auto mb-6 drop-shadow-2xl rounded-2xl animate-logo-bounce">
+        <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-4 text-[#202124] animate-slide-in-up"><span class="text-[#1a73e8]">One subscription.</span> So much premium value.</h2>
+        <p class="text-xl text-[#5f6368] text-center mb-14 max-w-2xl animate-fade-in-up">Unlock a suite of powerful tools and features designed to help you and your team work smarter, faster, and more securely—all in one place.</p>
+        <div class="relative flex items-center justify-center w-full animate-fade-in-up">
           <!-- Carousel Arrows -->
-          <button (click)="prevCarousel()" [disabled]="carouselIndex === 0" class="absolute -left-16 top-1/2 -translate-y-1/2 bg-white border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow hover:bg-[#f5faff] z-10 disabled:opacity-50 disabled:cursor-not-allowed"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
-          <div class="flex gap-6">
-            <div *ngFor="let card of visibleCarouselCards" class="carousel-card min-w-[340px] bg-white rounded-2xl border border-[#e0e3e7] shadow p-6 flex flex-col items-start">
-              <img [src]="card.image" [alt]="card.label" class="h-32 w-full object-contain mb-4">
-              <div class="flex items-center mb-2"><img [src]="card.icon" class="w-5 h-5 mr-2"> <span class="text-xs font-medium text-[#5f6368]">{{card.label}}</span></div>
-              <h3 class="font-semibold text-lg mb-1 text-[#1a202c]">{{card.title}}</h3>
-              <p class="text-[#5f6368] text-sm">{{card.description}}</p>
+          <button (click)="prevCarousel()" [disabled]="carouselIndex === 0" class="absolute -left-16 top-1/2 -translate-y-1/2 bg-white/80 border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-[#e3f0ff] z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+          <div class="flex gap-10">
+            <div *ngFor="let card of visibleCarouselCards; let i = index" class="carousel-card min-w-[340px] bg-white/60 backdrop-blur-xl rounded-3xl border border-[#e0e3e7] shadow-2xl p-10 flex flex-col items-start premium-shadow transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-staggered-fade-in-up" [style.animationDelay]="(i * 120) + 'ms'">
+              <img [src]="card.image" [alt]="card.label" class="h-32 w-full object-contain mb-6 rounded-xl shadow bg-gradient-to-tr from-[#e3f0ff] to-[#fff]">
+              <div class="flex items-center mb-3"><img [src]="card.icon" class="w-7 h-7 mr-2"> <span class="text-sm font-semibold text-[#5f6368]">{{card.label}}</span></div>
+              <h3 class="font-semibold text-2xl mb-2 text-[#202124]">{{card.title}}</h3>
+              <p class="text-[#5f6368] text-base">{{card.description}}</p>
             </div>
           </div>
-          <button (click)="nextCarousel()" [disabled]="carouselIndex >= carouselCards.length - 3" class="absolute -right-16 top-1/2 -translate-y-1/2 bg-white border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow hover:bg-[#f5faff] z-10 disabled:opacity-50 disabled:cursor-not-allowed"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+          <button (click)="nextCarousel()" [disabled]="carouselIndex >= carouselCards.length - 3" class="absolute -right-16 top-1/2 -translate-y-1/2 bg-white/80 border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-[#e3f0ff] z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
     </section>
@@ -193,15 +199,15 @@
             <details class="group p-0">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">Can my company try Google Workspace before committing?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
               <div class="px-6 pb-5 text-[#5f6368] text-base">Yes, you can try any plan free for 14 days.</div>
-            </details>
+          </details>
             <details class="group p-0">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">How do I sign up for Google Workspace?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
               <div class="px-6 pb-5 text-[#5f6368] text-base">Click any Get started button and follow the steps.</div>
-            </details>
+          </details>
             <details class="group p-0">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">How can I migrate my organization's data to Google Workspace?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
               <div class="px-6 pb-5 text-[#5f6368] text-base">See our migration guides for step-by-step instructions.</div>
-            </details>
+          </details>
           </div>
         </div>
         <!-- Right: Info Cards -->
