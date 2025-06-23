@@ -1,1 +1,247 @@
-<p>header works!</p>
+<nav class="bg-white border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Left side -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Logo" class="h-8 w-auto">
+            <span class="ml-2 text-[#5f6368] font-medium">Workspace</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex ml-10 space-x-1">
+          <!-- Solutions Dropdown -->
+          <div class="relative">
+            <button (click)="toggleSolutions($event)" 
+                    class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium"
+                    [class.text-[#202124]]="isSolutionsOpen">
+              Solutions
+              <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+                   [class.transform]="isSolutionsOpen" 
+                   [class.rotate-180]="isSolutionsOpen" 
+                   fill="none" 
+                   viewBox="0 0 24 24" 
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <!-- Solutions Dropdown Panel -->
+            <div *ngIf="isSolutionsOpen"
+                 class="absolute left-0 mt-2 w-80 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+              <div class="py-2">
+                <div class="px-4 py-2 text-xs font-semibold text-[#5f6368] uppercase tracking-wider">
+                  Solutions
+                </div>
+                <div class="divide-y divide-gray-100">
+                  <a *ngFor="let solution of solutions"
+                     href="#"
+                     class="group flex items-start px-4 py-3 hover:bg-gray-50">
+                    <div>
+                      <p class="text-sm font-medium text-[#202124] group-hover:text-[#1a73e8]">
+                        {{solution.title}}
+                      </p>
+                      <p class="mt-1 text-sm text-[#5f6368]">
+                        {{solution.description}}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Work Dropdown -->
+          <div class="relative">
+            <button (click)="toggleOurWork($event)" 
+                    class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium"
+                    [class.text-[#202124]]="isOurWorkOpen">
+              Our work
+              <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+                   [class.transform]="isOurWorkOpen" 
+                   [class.rotate-180]="isOurWorkOpen" 
+                   fill="none" 
+                   viewBox="0 0 24 24" 
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <!-- Our Work Dropdown Panel -->
+            <div *ngIf="isOurWorkOpen"
+                 class="absolute left-0 mt-2 w-80 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+              <div class="py-2">
+                <div class="px-4 py-2 text-xs font-semibold text-[#5f6368] uppercase tracking-wider">
+                  Our Work
+                </div>
+                <div class="divide-y divide-gray-100">
+                  <a *ngFor="let work of ourWork"
+                     href="#"
+                     class="group flex items-start px-4 py-3 hover:bg-gray-50">
+                    <div>
+                      <p class="text-sm font-medium text-[#202124] group-hover:text-[#1a73e8]">
+                        {{work.title}}
+                      </p>
+                      <p class="mt-1 text-sm text-[#5f6368]">
+                        {{work.description}}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries Dropdown -->
+          <div class="relative">
+            <button (click)="toggleIndustries($event)"
+                    class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium"
+                    [class.text-[#202124]]="isIndustriesOpen">
+              Industries
+              <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+                   [class.transform]="isIndustriesOpen"
+                   [class.rotate-180]="isIndustriesOpen"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <!-- Industries Dropdown Panel -->
+            <div *ngIf="isIndustriesOpen"
+                 class="absolute left-0 mt-2 w-80 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+              <div class="py-2">
+                <div class="px-4 py-2 text-xs font-semibold text-[#5f6368] uppercase tracking-wider">
+                  Industries
+                </div>
+                <div class="divide-y divide-gray-100">
+                  <a *ngFor="let industry of industries"
+                     href="#"
+                     class="group flex items-start px-4 py-3 hover:bg-gray-50">
+                    <div>
+                      <p class="text-sm font-medium text-[#202124] group-hover:text-[#1a73e8]">
+                        {{industry.title}}
+                      </p>
+                      <p class="mt-1 text-sm text-[#5f6368]">
+                        {{industry.description}}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resources Dropdown -->
+          <div class="relative">
+            <button (click)="toggleResources($event)"
+                    class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium"
+                    [class.text-[#202124]]="isResourcesOpen">
+              Resources
+              <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+                   [class.transform]="isResourcesOpen"
+                   [class.rotate-180]="isResourcesOpen"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <!-- Resources Dropdown Panel -->
+            <div *ngIf="isResourcesOpen"
+                 class="absolute right-0 mt-2 w-[700px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 p-8">
+              <div class="flex w-full gap-12">
+                <div *ngFor="let col of resources" class="flex-1 min-w-[180px]">
+                  <div class="text-xs font-semibold text-[#5f6368] uppercase tracking-wider mb-4">{{col.column}}</div>
+                  <div *ngFor="let item of col.items" class="mb-6 last:mb-0">
+                    <a [href]="item.href" class="block text-sm font-medium text-[#202124] hover:text-[#1a73e8]">{{item.title}}</a>
+                    <div class="text-xs text-[#5f6368] mt-1">{{item.description}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="px-3 py-2 text-sm font-medium text-[#5f6368] hover:text-[#202124]">Pricing</a>
+          <a href="#" class="px-3 py-2 text-sm font-medium text-[#5f6368] hover:text-[#202124]">Contact</a>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-2">
+        <a href="#" class="text-[#1a73e8] font-medium px-4 py-2 rounded-md text-sm">Admin console</a>
+        <a href="#" class="px-4 py-2 text-sm font-medium text-[#1a73e8] border border-[#e0e3e7] bg-white rounded-lg hover:bg-[#f5faff] transition">Contact sales</a>
+        <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] rounded-lg transition-colors">Get started</a>
+        <!-- Mobile menu button -->
+        <button (click)="toggleMenu()" class="md:hidden ml-4 text-[#5f6368] hover:text-[#202124]">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path [attr.d]="isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden" [class.hidden]="!isMenuOpen">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <button (click)="toggleSolutions($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+          Solutions
+        </button>
+        <div *ngIf="isSolutionsOpen" class="pl-4">
+          <a *ngFor="let solution of solutions"
+             href="#"
+             class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+            {{solution.title}}
+          </a>
+        </div>
+        
+        <button (click)="toggleOurWork($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+          Our work
+        </button>
+        <div *ngIf="isOurWorkOpen" class="pl-4">
+          <a *ngFor="let work of ourWork"
+             href="#"
+             class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+            {{work.title}}
+          </a>
+        </div>
+
+        <button (click)="toggleIndustries($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+          Industries
+        </button>
+        <div *ngIf="isIndustriesOpen" class="pl-4">
+          <a *ngFor="let industry of industries"
+             href="#"
+             class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+            {{industry.title}}
+          </a>
+        </div>
+
+        <!-- Resources Dropdown Mobile -->
+        <button (click)="toggleResources($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+          Resources
+        </button>
+        <div *ngIf="isResourcesOpen" class="pl-4">
+          <div *ngFor="let col of resources" class="mb-4">
+            <div class="text-xs font-semibold text-[#5f6368] uppercase tracking-wider mb-2">{{col.column}}</div>
+            <div *ngFor="let item of col.items" class="mb-2 last:mb-0">
+              <a [href]="item.href" class="block px-3 py-1 text-base font-medium text-[#202124] hover:text-[#1a73e8]">{{item.title}}</a>
+              <div class="text-xs text-[#5f6368] ml-3">{{item.description}}</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">Pricing</a>
+        <a href="#" class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Backdrop for closing dropdowns -->
+<div *ngIf="isSolutionsOpen || isIndustriesOpen" 
+     class="fixed inset-0 z-40"
+     (click)="closeDropdowns()"></div>
