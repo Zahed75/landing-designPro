@@ -1,0 +1,235 @@
+<div class="min-h-screen flex flex-col bg-[#fff] font-sans">
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-[#f8fafc] to-[#fff] pt-24 pb-16 border-b border-[#e0e3e7]">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+        <div class="flex-1">
+          <h1 class="text-5xl font-extrabold text-[#1a202c] mb-6 leading-tight">The better<br>way to work</h1>
+          <p class="text-xl text-[#5f6368] mb-8 max-w-lg">Get a flexible, innovative solution for people and organizations to achieve more. Connect, create, and collaborate with Google Workspace tools.</p>
+          <a href="#" class="inline-block px-8 py-3 bg-[#1a73e8] text-white font-semibold rounded-lg shadow-md hover:bg-[#1765c1] transition">Get started</a>
+        </div>
+        <div class="flex-1 flex justify-center items-center">
+          <div class="relative w-full max-w-md aspect-video rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#e3f0ff] via-[#f3f6fb] to-[#f8fafc] flex items-center justify-center">
+            <video 
+              src="assets/videos/intro.mp4" 
+              controls 
+              muted 
+              class="w-full h-full object-cover rounded-2xl"
+              poster="assets/icons/video-poster.png">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab Navigation Bar (moved below Hero, above Features) -->
+    <div class="flex justify-center w-full py-8 bg-transparent sticky top-0 z-30 transition-all duration-300" style="backdrop-filter: blur(2px);">
+      <div class="relative flex bg-white rounded-full shadow border border-[#e0e3e7] overflow-hidden mx-auto transition-all duration-300" style="min-width: 600px;">
+        <div class="absolute left-0 top-0 h-full transition-transform duration-300 ease-in-out bg-[#f8fafc] rounded-full z-0"
+             [style.width]="'25%'" [style.transform]="'translateX(0%)'" style="will-change: transform;"></div>
+        <button class="relative z-10 px-8 py-3 text-sm font-semibold focus:outline-none transition text-[#202124] whitespace-nowrap" [ngClass]="{'font-bold': true}">What's included</button>
+        <button class="relative z-10 px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Premium features</button>
+        <button class="relative z-10 px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Plans & pricing</button>
+        <button class="relative z-10 px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">FAQs</button>
+      </div>
+    </div>
+
+    <!-- Features Overview (Google Workspace Style) -->
+    <section class="bg-gradient-to-br from-[#f8fafc] via-[#e3f0ff] to-[#fff] py-20 border-b border-[#e0e3e7] text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-[#202124] mb-4">Everything you need to get anything done</h2>
+        <p class="text-lg text-[#5f6368] mb-12 max-w-2xl mx-auto">Store, create, and collaborate on documents, spreadsheets, and presentations with everyone on your team, in one place.</p>
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-6 animate-fade-in-up">
+          <div *ngFor="let tool of tools; let i = index"
+               class="group flex flex-col items-center min-w-[72px]">
+            <div class="tool-box bg-white rounded-xl p-3 shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110 group-hover:border group-hover:border-[#1a73e8] flex flex-col items-center">
+              <img [src]="tool.icon" [alt]="tool.name" class="w-10 h-10 mb-1 drop-shadow-sm transition-transform duration-300">
+            </div>
+            <span class="text-xs text-[#202124] mt-2">{{tool.name}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Cards (Carousel Style) -->
+    <section class="relative bg-gradient-to-br from-[#f8fafc] via-[#e3f0ff] to-[#fff] py-24 border-b border-[#e0e3e7] overflow-hidden animate-fade-in-up">
+      <!-- Floating Gradient Shapes -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[320px] bg-gradient-to-tr from-[#1a73e8]/20 via-[#e3f0ff]/60 to-[#fff]/0 rounded-full blur-3xl opacity-60 pointer-events-none animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-[#1a73e8]/10 via-[#f8fafc]/60 to-[#fff]/0 rounded-full blur-2xl opacity-40 pointer-events-none animate-float2"></div>
+      <div class="max-w-5xl mx-auto px-4 flex flex-col items-center relative z-10">
+        <img src="/assets/icons/logo.jpg" alt="Logo" class="h-16 w-auto mb-6 drop-shadow-2xl rounded-2xl animate-logo-bounce">
+        <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-4 text-[#202124] animate-slide-in-up"><span class="text-[#1a73e8]">One subscription.</span> So much premium value.</h2>
+        <p class="text-xl text-[#5f6368] text-center mb-14 max-w-2xl animate-fade-in-up">Unlock a suite of powerful tools and features designed to help you and your team work smarter, faster, and more securely—all in one place.</p>
+        <div class="relative flex items-center justify-center w-full animate-fade-in-up">
+          <!-- Carousel Arrows -->
+          <button (click)="prevCarousel()" [disabled]="carouselIndex === 0" class="absolute -left-16 top-1/2 -translate-y-1/2 bg-white/80 border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-[#e3f0ff] z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+          <div class="flex gap-10">
+            <div *ngFor="let card of visibleCarouselCards; let i = index" class="carousel-card min-w-[340px] bg-white/60 backdrop-blur-xl rounded-3xl border border-[#e0e3e7] shadow-2xl p-10 flex flex-col items-start premium-shadow transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-staggered-fade-in-up" [style.animationDelay]="(i * 120) + 'ms'">
+              <img [src]="card.image" [alt]="card.label" class="h-32 w-full object-contain mb-6 rounded-xl shadow bg-gradient-to-tr from-[#e3f0ff] to-[#fff]">
+              <div class="flex items-center mb-3"><img [src]="card.icon" class="w-7 h-7 mr-2"> <span class="text-sm font-semibold text-[#5f6368]">{{card.label}}</span></div>
+              <h3 class="font-semibold text-2xl mb-2 text-[#202124]">{{card.title}}</h3>
+              <p class="text-[#5f6368] text-base">{{card.description}}</p>
+            </div>
+          </div>
+          <button (click)="nextCarousel()" [disabled]="carouselIndex >= carouselCards.length - 3" class="absolute -right-16 top-1/2 -translate-y-1/2 bg-white/80 border border-[#e0e3e7] rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-[#e3f0ff] z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section class="bg-[#fff] py-16 border-b border-[#e0e3e7]">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10 text-[#1a202c]">Find the right plan for your business. Try it free for 14 days.</h2>
+        <div class="grid md:grid-cols-4 gap-6 md:gap-8">
+          <!-- Business Starter -->
+          <div class="pricing-card bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center border border-[#e0e3e7] relative">
+            <h3 class="font-semibold text-lg mb-2 text-[#1a202c]">Business Starter</h3>
+            <div class="text-3xl font-extrabold mb-1 text-[#1a73e8] flex items-end">$7 <span class="text-base font-medium ml-1 text-[#5f6368]">USD</span></div>
+            <div class="text-[#5f6368] mb-4 text-sm">per user / month, 1 year commitment</div>
+            <a href="#" class="pricing-btn w-full text-center px-4 py-2 bg-[#fff] text-[#1a73e8] border border-[#1a73e8] rounded-lg font-medium hover:bg-[#f5faff] transition mb-6">Start a trial</a>
+            <ul class="text-[#202124] mb-0 space-y-2 text-sm w-full">
+              <li><span class="font-medium">30 GB</span> pooled storage per user*</li>
+              <li>Secure custom business email, you&#64;your-company.com</li>
+            </ul>
+            <div class="w-full border-t border-[#e0e3e7] my-6"></div>
+            <ul class="text-[#1a73e8] text-sm w-full space-y-2">
+              <li>Get started with AI</li>
+              <li>Gemini AI assistant in Gmail</li>
+              <li>Chat with AI in the Gemini app</li>
+            </ul>
+          </div>
+          <!-- Business Standard (Most Popular) -->
+          <div class="pricing-card bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center border-2 border-[#1a73e8] relative">
+            <div class="absolute top-0 -translate-y-1/2 bg-[#1a73e8] text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+            <h3 class="font-semibold text-lg mb-2 text-[#1a202c]">Business Standard</h3>
+            <div class="text-3xl font-extrabold mb-1 text-[#1a73e8] flex items-end">$14 <span class="text-base font-medium ml-1 text-[#5f6368]">USD</span></div>
+            <div class="text-[#5f6368] mb-4 text-sm">per user / month, 1 year commitment</div>
+            <a href="#" class="pricing-btn w-full text-center px-4 py-2 bg-[#1a73e8] text-white rounded-lg font-medium hover:bg-[#1765c1] transition mb-6">Start a trial</a>
+            <ul class="text-[#202124] mb-0 space-y-2 text-sm w-full">
+              <li><span class="font-medium">1 TB</span> pooled storage per user*</li>
+              <li>Secure custom business email, you&#64;your-company.com</li>
+            </ul>
+            <div class="w-full border-t border-[#e0e3e7] my-6"></div>
+            <ul class="text-[#1a73e8] text-sm w-full space-y-2">
+              <li><span class="font-medium">Includes AI</span></li>
+              <li>Gemini AI assistant in Gmail</li>
+              <li>Chat with AI in the Gemini app</li>
+              <li>Meeting features like recordings, transcripts & more</li>
+            </ul>
+          </div>
+          <!-- Business Plus -->
+          <div class="pricing-card bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center border border-[#e0e3e7] relative">
+            <h3 class="font-semibold text-lg mb-2 text-[#1a202c]">Business Plus</h3>
+            <div class="text-3xl font-extrabold mb-1 text-[#1a73e8] flex items-end">$22 <span class="text-base font-medium ml-1 text-[#5f6368]">USD</span></div>
+            <div class="text-[#5f6368] mb-4 text-sm">per user / month, 1 year commitment</div>
+            <a href="#" class="pricing-btn w-full text-center px-4 py-2 bg-[#fff] text-[#1a73e8] border border-[#1a73e8] rounded-lg font-medium hover:bg-[#f5faff] transition mb-6">Start a trial</a>
+            <ul class="text-[#202124] mb-0 space-y-2 text-sm w-full">
+              <li><span class="font-medium">2 TB</span> pooled storage per user*</li>
+              <li>Secure custom business email, you&#64;your-company.com</li>
+              <li>Enhanced security & compliance</li>
+            </ul>
+            <div class="w-full border-t border-[#e0e3e7] my-6"></div>
+            <ul class="text-[#1a73e8] text-sm w-full space-y-2">
+              <li><span class="font-medium">Includes AI</span></li>
+              <li>Gemini AI assistant in Gmail</li>
+              <li>Chat with AI in the Gemini app</li>
+              <li>Meeting features like recordings, transcripts & more</li>
+            </ul>
+          </div>
+          <!-- Enterprise -->
+          <div class="pricing-card bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center border border-[#e0e3e7] relative">
+            <h3 class="font-semibold text-lg mb-2 text-[#1a202c]">Enterprise</h3>
+            <div class="text-xl font-bold mb-1 text-[#1a73e8]">Contact sales</div>
+            <div class="text-[#5f6368] mb-4 text-sm">for custom pricing</div>
+            <a href="#" class="pricing-btn w-full text-center px-4 py-2 bg-[#fff] text-[#1a73e8] border border-[#1a73e8] rounded-lg font-medium hover:bg-[#f5faff] transition mb-6">Contact sales</a>
+            <ul class="text-[#202124] mb-0 space-y-2 text-sm w-full">
+              <li><span class="font-medium">5 TB</span> starting pooled storage*</li>
+              <li>Secure custom business email, you&#64;your-company.com</li>
+              <li>Enterprise-grade security</li>
+            </ul>
+            <div class="w-full border-t border-[#e0e3e7] my-6"></div>
+            <ul class="text-[#1a73e8] text-sm w-full space-y-2">
+              <li><span class="font-medium">Includes AI & much more</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#f8fafc] py-16 border-b border-[#e0e3e7]">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-12">
+        <!-- Left: Title and Description -->
+        <div class="w-full lg:w-[480px]">
+          <h2 class="text-4xl font-extrabold mb-4 text-[#202124]">Frequently asked questions</h2>
+          <p class="text-[#5f6368] text-base mb-6">Find answers to common questions about Google Workspace plans, features, and billing.</p>
+        </div>
+        <!-- Right: Accordion -->
+        <div class="flex-1">
+          <div class="border border-[#e0e3e7] rounded-xl overflow-hidden divide-y divide-[#e0e3e7] bg-white shadow-sm">
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">What is Google Workspace?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">A suite of tools for business.</div>
+            </details>
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">What is Gemini and where can I learn more about it?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">Gemini is Google's AI. Learn more on the official site.</div>
+            </details>
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">Which Google Workspace plan is right for my business?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">Compare plans on our pricing page to find the best fit.</div>
+            </details>
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">Can my company try Google Workspace before committing?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">Yes, you can try any plan free for 14 days.</div>
+          </details>
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">How do I sign up for Google Workspace?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">Click any Get started button and follow the steps.</div>
+          </details>
+            <details class="group p-0">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-lg font-medium text-[#202124] group-open:font-bold group-open:text-[#1a73e8]">How can I migrate my organization's data to Google Workspace?<svg class="w-5 h-5 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+              <div class="px-6 pb-5 text-[#5f6368] text-base">See our migration guides for step-by-step instructions.</div>
+          </details>
+          </div>
+        </div>
+        <!-- Right: Info Cards -->
+        <div class="w-full lg:w-[340px] flex flex-col gap-6 mt-12 lg:mt-0">
+          <div class="bg-white rounded-xl border border-[#e0e3e7] shadow-sm p-6">
+            <h3 class="text-lg font-semibold text-[#202124] mb-2">Explore Learning Center</h3>
+            <p class="text-[#5f6368] text-sm mb-4">Browse tips, guides, and how-to videos made for both new users and power users.</p>
+            <a href="#" class="inline-block px-5 py-2 border border-[#e0e3e7] rounded-lg text-[#1a73e8] font-medium hover:bg-[#f5faff] transition">See resources</a>
+          </div>
+          <div class="bg-white rounded-xl border border-[#e0e3e7] shadow-sm p-6">
+            <h3 class="text-lg font-semibold text-[#202124] mb-2">Get admin help</h3>
+            <p class="text-[#5f6368] text-sm mb-4">Sign in to find specific answers, manage users, or get support as a developer.</p>
+            <a href="#" class="inline-block px-5 py-2 border border-[#e0e3e7] rounded-lg text-[#1a73e8] font-medium hover:bg-[#f5faff] transition">Get support</a>
+          </div>
+        </div>
+      </div>
+      <!-- Floating Chat Box -->
+      <div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2">
+        <div class="bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-2 text-[#202124] text-base">
+          <span>Hi there <span class="ml-1">👋</span> What brings you to Google Workspace today?</span>
+          <button class="ml-2 text-[#5f6368] hover:text-[#ea4335] text-lg">&times;</button>
+        </div>
+        <button class="bg-[#1a73e8] hover:bg-[#1765c1] text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg text-2xl">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup (keep as is) -->
+    <section class="bg-[#fff] py-16">
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-[#1a202c]">Sign up for the Workspace newsletter</h2>
+        <form class="flex flex-col sm:flex-row gap-4 justify-center">
+          <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg border border-[#e0e3e7] focus:outline-none focus:ring-2 focus:ring-[#1a73e8]" required>
+          <button type="submit" class="px-6 py-2 bg-[#1a73e8] text-white rounded-lg font-medium hover:bg-[#1765c1] transition">Sign up</button>
+        </form>
+        <p class="text-xs text-[#5f6368] mt-2">By signing up, you agree to our privacy policy.</p>
+      </div>
+    </section>
+  </main>
+</div> 

@@ -1,0 +1,17 @@
+/* Extra styles for Contact page */
+@media (max-width: 768px) {
+  .max-w-7xl {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px #e3f0ff;
+}
+
+button[type="submit"]:hover {
+  background: #1765c1;
+} 
