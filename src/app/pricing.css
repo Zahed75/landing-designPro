@@ -1,0 +1,28 @@
+/* Pricing Card Hover & Click Effects */
+.pricing-card {
+  transition: box-shadow 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), border-color 0.25s;
+  cursor: pointer;
+}
+.pricing-card:hover, .pricing-card:focus-within {
+  box-shadow: 0 12px 32px 0 rgba(26,115,232,0.13), 0 2px 8px 0 rgba(60,64,67,0.10);
+  transform: translateY(-4px) scale(1.03);
+  border-color: #1a73e8;
+  z-index: 20;
+}
+.pricing-card:active {
+  transform: scale(0.98);
+}
+
+.pricing-btn {
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(26,115,232,0.08);
+}
+.pricing-btn:hover, .pricing-btn:focus {
+  box-shadow: 0 6px 24px 0 rgba(26,115,232,0.13);
+  background: #1765c1;
+  color: #fff;
+  border-color: #1765c1;
+}
+.pricing-btn:active {
+  transform: scale(0.97);
+} 
