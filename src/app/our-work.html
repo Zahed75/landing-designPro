@@ -1,0 +1,29 @@
+<div class="our-work-hero">
+  <div class="our-work-hero-bg"></div>
+  <!-- Floating SVG shapes for extra flair -->
+  <svg class="our-work-hero-shape shape1" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="40" fill="#6a82fb" fill-opacity="0.18"/></svg>
+  <svg class="our-work-hero-shape shape2" width="60" height="60" viewBox="0 0 60 60"><rect x="0" y="0" width="60" height="60" rx="18" fill="#fc5c7d" fill-opacity="0.13"/></svg>
+  <svg class="our-work-hero-shape shape3" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 100,100 0,100" fill="#43e97b" fill-opacity="0.13"/></svg>
+  <div class="our-work-hero-content">
+    <span class="our-work-hero-badge">OUR WORK</span>
+    <h1 class="modern-gradient-headline">
+      <span class="gradient-animated-text">Check out some of the latest creations we did for our customers</span>
+    </h1>
+    <p class="our-work-hero-subtitle">From social media to branding, see how we help businesses stand out with stunning, modern design.</p>
+  </div>
+</div>
+
+<div class="our-work-sections">
+  <section *ngFor="let section of portfolioSections" class="our-work-section animate-section">
+    <h2 class="our-work-section-title">{{ section.title }}</h2>
+    <p class="our-work-section-desc">{{ section.description }}</p>
+    <div class="our-work-grid">
+      <div class="our-work-card" *ngFor="let img of section.images">
+        <img [src]="img" alt="Portfolio image" />
+      </div>
+    </div>
+    <div class="our-work-section-cta">
+      <a routerLink="/contact" class="our-work-btn">Get Started</a>
+    </div>
+  </section>
+</div> 

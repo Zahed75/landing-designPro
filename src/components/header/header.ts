@@ -13,7 +13,6 @@ export class Header {
   isMenuOpen = false;
   isSolutionsOpen = false;
   isIndustriesOpen = false;
-  isOurWorkOpen = false;
   isResourcesOpen = false;
 
   solutions = [
@@ -36,41 +35,6 @@ export class Header {
     {
       title: 'Video Editing',
       description: 'Handoff post-production footage for professional video editing.'
-    }
-  ];
-
-  ourWork = [
-    {
-      title: 'Ad Creative',
-      description: 'Eye-catching ads in every aspect ratio.'
-    },
-    {
-      title: 'Social Media Creative',
-      description: 'Scroll-stopping assets for every platform.'
-    },
-    {
-      title: 'Web Design',
-      description: 'UI designs for websites that wow.'
-    },
-    {
-      title: 'Email Design',
-      description: 'Templates and graphics that drive results.'
-    },
-    {
-      title: 'Packaging & Merch Design',
-      description: 'Stickers, keychains, and more.'
-    },
-    {
-      title: 'Print Design',
-      description: 'Book covers, magazines, posters and more.'
-    },
-    {
-      title: 'Branding',
-      description: 'Logos, brand kits and visual guide designs.'
-    },
-    {
-      title: 'eBook & Digital Report Design',
-      description: 'Professional digital publications.'
     }
   ];
 
@@ -120,7 +84,6 @@ export class Header {
     this.isSolutionsOpen = !this.isSolutionsOpen;
     if (this.isSolutionsOpen) {
       this.isIndustriesOpen = false;
-      this.isOurWorkOpen = false;
     }
   }
 
@@ -129,16 +92,6 @@ export class Header {
     this.isIndustriesOpen = !this.isIndustriesOpen;
     if (this.isIndustriesOpen) {
       this.isSolutionsOpen = false;
-      this.isOurWorkOpen = false;
-    }
-  }
-
-  toggleOurWork(event: Event) {
-    event.preventDefault();
-    this.isOurWorkOpen = !this.isOurWorkOpen;
-    if (this.isOurWorkOpen) {
-      this.isSolutionsOpen = false;
-      this.isIndustriesOpen = false;
     }
   }
 
@@ -148,14 +101,12 @@ export class Header {
     if (this.isResourcesOpen) {
       this.isSolutionsOpen = false;
       this.isIndustriesOpen = false;
-      this.isOurWorkOpen = false;
     }
   }
 
   closeDropdowns() {
     this.isSolutionsOpen = false;
     this.isIndustriesOpen = false;
-    this.isOurWorkOpen = false;
     this.isResourcesOpen = false;
   }
 }

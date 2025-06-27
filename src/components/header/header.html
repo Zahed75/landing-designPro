@@ -53,46 +53,10 @@
             </div>
           </div>
 
-          <!-- Our Work Dropdown -->
-          <div class="relative">
-            <button (click)="toggleOurWork($event)" 
-                    class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium"
-                    [class.text-[#202124]]="isOurWorkOpen">
-              Our work
-              <svg class="ml-1 h-4 w-4 transition-transform duration-200"
-                   [class.transform]="isOurWorkOpen" 
-                   [class.rotate-180]="isOurWorkOpen" 
-                   fill="none" 
-                   viewBox="0 0 24 24" 
-                   stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
-            <!-- Our Work Dropdown Panel -->
-            <div *ngIf="isOurWorkOpen"
-                 class="absolute left-0 mt-2 w-80 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-              <div class="py-2">
-                <div class="px-4 py-2 text-xs font-semibold text-[#5f6368] uppercase tracking-wider">
-                  Our Work
-                </div>
-                <div class="divide-y divide-gray-100">
-                  <a *ngFor="let work of ourWork"
-                     href="#"
-                     class="group flex items-start px-4 py-3 hover:bg-gray-50">
-                    <div>
-                      <p class="text-sm font-medium text-[#202124] group-hover:text-[#1a73e8]">
-                        {{work.title}}
-                      </p>
-                      <p class="mt-1 text-sm text-[#5f6368]">
-                        {{work.description}}
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Our Work Link -->
+          <a routerLink="/our-work" class="group inline-flex items-center px-3 py-2 text-[#5f6368] hover:text-[#202124] text-sm font-medium">
+            Our work
+          </a>
 
           <!-- Industries Dropdown -->
           <div class="relative">
@@ -199,16 +163,9 @@
           </a>
         </div>
         
-        <button (click)="toggleOurWork($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
+        <a routerLink="/our-work" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
           Our work
-        </button>
-        <div *ngIf="isOurWorkOpen" class="pl-4">
-          <a *ngFor="let work of ourWork"
-             href="#"
-             class="block px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
-            {{work.title}}
-          </a>
-        </div>
+        </a>
 
         <button (click)="toggleIndustries($event)" class="w-full text-left px-3 py-2 text-base font-medium text-[#5f6368] hover:text-[#202124]">
           Industries
@@ -246,6 +203,6 @@
 </nav>
 
 <!-- Backdrop for closing dropdowns -->
-<div *ngIf="isSolutionsOpen || isIndustriesOpen" 
+<div *ngIf="isSolutionsOpen || isIndustriesOpen || isResourcesOpen" 
      class="fixed inset-0 z-40"
      (click)="closeDropdowns()"></div>
