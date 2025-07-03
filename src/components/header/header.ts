@@ -109,4 +109,16 @@ export class Header {
     this.isIndustriesOpen = false;
     this.isResourcesOpen = false;
   }
+
+  // Split button dropdown for 'Try Chat for work'
+  isChatDropdownOpen = false;
+
+  toggleChatDropdown(event: Event) {
+    event.preventDefault();
+    this.isChatDropdownOpen = !this.isChatDropdownOpen;
+  }
+
+  closeChatDropdown() {
+    this.isChatDropdownOpen = false;
+  }
 }
