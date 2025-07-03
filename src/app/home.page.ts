@@ -128,4 +128,18 @@ export class HomePage {
   clearActiveTool() {
     this.activeToolIndex = null;
   }
+
+  public isHeroChatDropdownOpen = false;
+
+  public toggleHeroChatDropdown() {
+    this.isHeroChatDropdownOpen = !this.isHeroChatDropdownOpen;
+    console.log('Dropdown open:', this.isHeroChatDropdownOpen);
+  }
+
+  public isChatDropdownOpen = false;
+
+  toggleChatDropdown(event: Event) {
+    event.preventDefault();
+    this.isChatDropdownOpen = !this.isChatDropdownOpen;
+  }
 } 
