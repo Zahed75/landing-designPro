@@ -20,100 +20,80 @@ export class OurWorkPage {
       title: 'Social Media Designs',
       description: "Engaging designs to boost your brand's presence and grab the attention of your target audience. Custom Facebook, Instagram, and cross-platform-ready posts with vibrant visuals.",
       images: [
-        '/assets/images/1093520_Mockup-Work-SamplesSocial2_060921.jpg',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial3_060921.jpg',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg',
-        '/assets/images/RealEstate_SocialMedia.jpg'
+        '/assets/images/Social/1.png',
+        '/assets/images/Social/2.png',
+        '/assets/images/Social/3.png',
+        '/assets/images/Social/4.png'
       ]
     },
     {
       title: 'Ad Creative Designs',
       description: 'Eye-catching ad creatives for digital campaigns, banners, and more. Designed to maximize conversions and brand recall.',
       images: [
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial2_060921.jpg',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial3_060921.jpg'
+        '/assets/images/Ad Creative/1.png',
+        '/assets/images/Ad Creative/2.png',
+        '/assets/images/Ad Creative/3.png',
+        '/assets/images/Ad Creative/4.png'
       ]
     },
     {
       title: 'Email Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
+      description: 'Professional email templates and newsletters that drive engagement and conversions. Responsive designs optimized for all devices.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/ED/Email Design.png',
+        '/assets/images/ED/2.png',
+        '/assets/images/ED/3.png',
+        '/assets/images/ED/4.png'
       ]
     },
     {
       title: 'Web Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
+      description: 'Modern, responsive website designs that provide exceptional user experiences and drive business results.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/Website Designs/1.png',
+        '/assets/images/Website Designs/2.png',
+        '/assets/images/Website Designs/3.png',
+        '/assets/images/Website Designs/4.png'
       ]
     },
     {
       title: 'Integrated Campaign Designs',
       description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
-      ]
-    },
-    {
-      title: 'Packaging & Merchandise Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
-      images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/Intergrated Campain Designs/1.png',
+        '/assets/images/Intergrated Campain Designs/2.png',
+        '/assets/images/Intergrated Campain Designs/3.png',
+        '/assets/images/Intergrated Campain Designs/4.png'
       ]
     },
     {
       title: 'Print Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
+      description: 'High-quality print materials including brochures, flyers, business cards, and marketing collateral that make lasting impressions.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/Print Designs/1.png',
+        '/assets/images/Print Designs/2.png',
+        '/assets/images/Print Designs/3.png',
+        '/assets/images/Print Designs/4.png'
       ]
     },
     {
       title: 'Branding & Logo Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
+      description: 'Complete brand identity solutions including logos, color schemes, typography, and brand guidelines that establish strong market presence.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
-      ]
-    },
-    {
-      title: 'eBook & Digital Report Design',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
-      images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
-      ]
-    },
-    {
-      title: 'Custom Illustrations',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
-      images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/Branding logo/1.png',
+        '/assets/images/Branding logo/2.png',
+        '/assets/images/Branding logo/3.png',
+        '/assets/images/Branding logo/4.png'
       ]
     },
     {
       title: 'Infographics',
-      description: 'Comprehensive campaign visuals across web, social, and print. Consistent branding and creative storytelling for maximum impact.',
+      description: 'Data visualization and informational graphics that transform complex information into engaging, easy-to-understand visual content.',
       images: [
-        '/assets/images/08182022_Integrated-Campaign-Mock-Ups_V2_2-03-768x768.webp',
-        '/assets/images/7-ElevenMockup-768x432.png',
-        '/assets/images/1093520_Mockup-Work-SamplesSocial5_060921.jpg'
+        '/assets/images/Infographics Designs/1.png',
+        '/assets/images/Infographics Designs/2.png',
+        '/assets/images/Infographics Designs/3.png',
+        '/assets/images/Infographics Designs/4.png'
       ]
     },
     
