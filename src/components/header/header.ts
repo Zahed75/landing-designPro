@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,11 +9,14 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header {
+export class Header implements OnInit {
   isMenuOpen = false;
   isSolutionsOpen = false;
   isIndustriesOpen = false;
   isResourcesOpen = false;
+
+
+  constructor() {}
 
   solutions = [
     {
@@ -37,6 +40,10 @@ export class Header {
       description: 'Handoff post-production footage for professional video editing.'
     }
   ];
+
+  ngOnInit() {
+    // Component initialization
+  }
 
   industries = [
     {
@@ -101,8 +108,11 @@ export class Header {
     if (this.isResourcesOpen) {
       this.isSolutionsOpen = false;
       this.isIndustriesOpen = false;
+
     }
   }
+
+
 
   closeDropdowns() {
     this.isSolutionsOpen = false;
