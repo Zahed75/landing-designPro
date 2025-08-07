@@ -40,7 +40,7 @@ export class OurWorkPage {
       title: 'Email Design',
       description: 'Professional email templates and newsletters that drive engagement and conversions. Responsive designs optimized for all devices.',
       images: [
-        '/assets/images/ED/Email Design.png',
+        '/assets/images/ED/5.png',
         '/assets/images/ED/2.png',
         '/assets/images/ED/3.png',
         '/assets/images/ED/4.png'
