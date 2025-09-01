@@ -23,7 +23,13 @@ export class OurWorkPage {
         '/assets/images/Social/1.png',
         '/assets/images/Social/2.png',
         '/assets/images/Social/3.png',
-        '/assets/images/Social/4.png'
+        '/assets/images/Social/4.png',
+        '/assets/images/Social/5.png',
+        '/assets/images/Social/6.png',
+        '/assets/images/Social/7.png',
+        '/assets/images/Social/8.png',
+        '/assets/images/Social/9.png',
+        '/assets/images/Social/10.png',
       ]
     },
     {
@@ -33,7 +39,13 @@ export class OurWorkPage {
         '/assets/images/Ad Creative/1.png',
         '/assets/images/Ad Creative/2.png',
         '/assets/images/Ad Creative/3.png',
-        '/assets/images/Ad Creative/4.png'
+        '/assets/images/Ad Creative/4.png',
+        '/assets/images/Ad Creative/5.png',
+        '/assets/images/Ad Creative/6.png',
+        '/assets/images/Ad Creative/7.png',
+        '/assets/images/Ad Creative/8.png',
+        '/assets/images/Ad Creative/9.png',
+        '/assets/images/Ad Creative/10.png',
       ]
     },
     {
@@ -43,7 +55,11 @@ export class OurWorkPage {
         '/assets/images/ED/5.png',
         '/assets/images/ED/2.png',
         '/assets/images/ED/3.png',
-        '/assets/images/ED/4.png'
+        '/assets/images/ED/4.png',
+        '/assets/images/ED/5.png',
+        '/assets/images/ED/6.png',
+        '/assets/images/ED/e7.png',
+        '/assets/images/ED/e8.png',
       ]
     },
     {
@@ -53,7 +69,12 @@ export class OurWorkPage {
         '/assets/images/Website Designs/1.png',
         '/assets/images/Website Designs/2.png',
         '/assets/images/Website Designs/3.png',
-        '/assets/images/Website Designs/4.png'
+        '/assets/images/Website Designs/4.png',
+        '/assets/images/Website Designs/5.png',
+        '/assets/images/Website Designs/6.png',
+        '/assets/images/Website Designs/7.png',
+        '/assets/images/Website Designs/8.png',
+        '/assets/images/Website Designs/9.png',
       ]
     },
     {
@@ -63,7 +84,15 @@ export class OurWorkPage {
         '/assets/images/Intergrated Campain Designs/1.png',
         '/assets/images/Intergrated Campain Designs/2.png',
         '/assets/images/Intergrated Campain Designs/3.png',
-        '/assets/images/Intergrated Campain Designs/4.png'
+        '/assets/images/Intergrated Campain Designs/4.png',
+        '/assets/images/Intergrated Campain Designs/5.png',
+        '/assets/images/Intergrated Campain Designs/6.png',
+        '/assets/images/Intergrated Campain Designs/7.png',
+        '/assets/images/Intergrated Campain Designs/8.png',
+        '/assets/images/Intergrated Campain Designs/9.png',
+        '/assets/images/Intergrated Campain Designs/10.png',
+        '/assets/images/Intergrated Campain Designs/11.png',
+        '/assets/images/Intergrated Campain Designs/12.png',
       ]
     },
     {
@@ -73,7 +102,28 @@ export class OurWorkPage {
         '/assets/images/Print Designs/1.png',
         '/assets/images/Print Designs/2.png',
         '/assets/images/Print Designs/3.png',
-        '/assets/images/Print Designs/4.png'
+        '/assets/images/Print Designs/4.png',
+        '/assets/images/Print Designs/5.png',
+        '/assets/images/Print Designs/6.png',
+        '/assets/images/Print Designs/7.png',
+        '/assets/images/Print Designs/8.png',
+        '/assets/images/Print Designs/9.png',
+        '/assets/images/Print Designs/10.png',
+        '/assets/images/Print Designs/11.png',
+        '/assets/images/Print Designs/12.png',
+        '/assets/images/Print Designs/13.png',
+        '/assets/images/Print Designs/14.png',
+        '/assets/images/Print Designs/15.png',
+        '/assets/images/Print Designs/16.png',
+        '/assets/images/Print Designs/17.png',
+        '/assets/images/Print Designs/18.png',
+        '/assets/images/Print Designs/19.png',
+        '/assets/images/Print Designs/20.png',
+        '/assets/images/Print Designs/21.png',
+        '/assets/images/Print Designs/22.png',
+        '/assets/images/Print Designs/23.png',
+        '/assets/images/Print Designs/24.png',
+        '/assets/images/Print Designs/25.png',
       ]
     },
     {
@@ -83,7 +133,31 @@ export class OurWorkPage {
         '/assets/images/Branding logo/1.png',
         '/assets/images/Branding logo/2.png',
         '/assets/images/Branding logo/3.png',
-        '/assets/images/Branding logo/4.png'
+        '/assets/images/Branding logo/4.png',
+        '/assets/images/Branding logo/5.png',
+        '/assets/images/Branding logo/6.png',
+        '/assets/images/Branding logo/7.png',
+        '/assets/images/Branding logo/8.png',
+        '/assets/images/Branding logo/9.png',
+        '/assets/images/Branding logo/10.png',
+        '/assets/images/Branding logo/11.png',
+        '/assets/images/Branding logo/12.png',
+        '/assets/images/Branding logo/13.png',
+        '/assets/images/Branding logo/14.png',
+        '/assets/images/Branding logo/15.png',
+        '/assets/images/Branding logo/16.png',
+        '/assets/images/Branding logo/17.png',
+        '/assets/images/Branding logo/18.png',
+        '/assets/images/Branding logo/19.png',
+        '/assets/images/Branding logo/20.png',
+        '/assets/images/Branding logo/21.png',
+        '/assets/images/Branding logo/22.png',
+        '/assets/images/Branding logo/23.png',
+        '/assets/images/Branding logo/24.png',
+        '/assets/images/Branding logo/25.png',
+        '/assets/images/Branding logo/26.png',
+        '/assets/images/Branding logo/27.png',
+     
       ]
     },
     {
@@ -93,7 +167,16 @@ export class OurWorkPage {
         '/assets/images/Infographics Designs/1.png',
         '/assets/images/Infographics Designs/2.png',
         '/assets/images/Infographics Designs/3.png',
-        '/assets/images/Infographics Designs/4.png'
+        '/assets/images/Infographics Designs/4.png',
+        '/assets/images/Infographics Designs/5.png',
+        '/assets/images/Infographics Designs/6.png',
+        '/assets/images/Infographics Designs/7.png',
+        '/assets/images/Infographics Designs/8.png',
+        '/assets/images/Infographics Designs/9.png',
+        '/assets/images/Infographics Designs/10.png',
+        '/assets/images/Infographics Designs/10.png',
+        '/assets/images/Infographics Designs/11.png',
+        '/assets/images/Infographics Designs/12.png',
       ]
     },
     
