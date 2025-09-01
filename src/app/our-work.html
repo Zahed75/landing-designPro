@@ -1,29 +1,104 @@
 <div class="our-work-hero">
-  <div class="our-work-hero-bg"></div>
-  <!-- Floating SVG shapes for extra flair -->
-  <svg class="our-work-hero-shape shape1" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="40" fill="#6a82fb" fill-opacity="0.18"/></svg>
-  <svg class="our-work-hero-shape shape2" width="60" height="60" viewBox="0 0 60 60"><rect x="0" y="0" width="60" height="60" rx="18" fill="#fc5c7d" fill-opacity="0.13"/></svg>
-  <svg class="our-work-hero-shape shape3" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 100,100 0,100" fill="#43e97b" fill-opacity="0.13"/></svg>
+  <!-- Geometric background elements -->
+  <div class="geometric-bg">
+    <div class="geo-shape shape-1"></div>
+    <div class="geo-shape shape-2"></div>
+    <div class="geo-shape shape-3"></div>
+    <div class="geo-shape shape-4"></div>
+  </div>
+  
+  <!-- Animated grid lines -->
+  <div class="grid-lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  
+  <!-- Hero content -->
   <div class="our-work-hero-content">
-    <span class="our-work-hero-badge">OUR WORK</span>
-    <h1 class="modern-gradient-headline">
-      <span class="gradient-animated-text">Check out some of the latest creations we did for our customers</span>
+    <div class="badge-container">
+      <span class="our-work-hero-badge">PORTFOLIO SHOWCASE</span>
+      <div class="badge-underline"></div>
+    </div>
+    
+    <h1 class="modern-headline">
+      <span class="text-reveal">Crafting Digital Excellence</span>
     </h1>
-    <p class="our-work-hero-subtitle">From social media to branding, see how we help businesses stand out with stunning, modern design.</p>
+    
+    <p class="our-work-hero-subtitle">
+      Explore our portfolio of innovative design solutions that transform brands and drive measurable results across all digital platforms.
+    </p>
+    
+    <!-- Stats section -->
+    <div class="stats-container">
+      <div class="stat">
+        <div class="stat-number" data-count="350">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="95">0</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="8">0</div>
+        <div class="stat-label">Design Categories</div>
+      </div>
+    </div>
+    
+    <!-- CTA buttons -->
+    <div class="cta-container">
+      <a routerLink="/contact" class="cta-btn primary">
+        <span>Start a Project</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a (click)="scrollToPortfolio()" class="cta-btn secondary">
+        <span>View Work</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-text">Scroll to explore</div>
+    <div class="scroll-line"></div>
   </div>
 </div>
 
-<div class="our-work-sections">
-  <section *ngFor="let section of portfolioSections" class="our-work-section animate-section">
-    <h2 class="our-work-section-title">{{ section.title }}</h2>
-    <p class="our-work-section-desc">{{ section.description }}</p>
+<!-- The rest of your existing our-work.html content follows below -->
+<div class="our-work-sections" #portfolioSection>
+  <section *ngFor="let section of portfolioSections; let i = index" class="our-work-section animate-section" [style.--section-delay]="i * 0.1 + 's'">
+    <div class="section-header">
+      <h2 class="our-work-section-title">{{ section.title }}</h2>
+      <p class="our-work-section-desc">{{ section.description }}</p>
+    </div>
+    
     <div class="our-work-grid">
-      <div class="our-work-card" *ngFor="let img of section.images">
-        <img [src]="img" alt="Portfolio image" />
+      <div class="our-work-card" *ngFor="let img of section.images; let j = index" [style.--card-delay]="j * 0.05 + 's'">
+        <img [src]="img" alt="Portfolio image" loading="lazy" />
+        <a href="javascript:void(0)" class="view-details-btn" (click)="openLightbox(img)">View Details</a>
       </div>
     </div>
+    
     <div class="our-work-section-cta">
-      <a routerLink="/contact" class="our-work-btn">Get Started</a>
+      <a routerLink="/contact" class="our-work-btn">Get Started With {{ section.title }}</a>
     </div>
   </section>
-</div> 
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" [class.active]="lightboxActive" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="lightbox-close" (click)="closeLightbox()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <img [src]="selectedImage" alt="Portfolio image" class="lightbox-image" />
+  </div>
+</div>

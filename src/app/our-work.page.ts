@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface PortfolioSection {
   title: string;
@@ -10,11 +11,16 @@ interface PortfolioSection {
 @Component({
   selector: 'app-our-work-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './our-work.html',
   styleUrls: ['./our-work.css']
 })
 export class OurWorkPage {
+  @ViewChild('portfolioSection') portfolioSection!: ElementRef;
+  
+  lightboxActive = false;
+  selectedImage = '';
+  
   portfolioSections: PortfolioSection[] = [
     {
       title: 'Social Media Designs',
@@ -157,7 +163,6 @@ export class OurWorkPage {
         '/assets/images/Branding logo/25.png',
         '/assets/images/Branding logo/26.png',
         '/assets/images/Branding logo/27.png',
-     
       ]
     },
     {
@@ -179,9 +184,80 @@ export class OurWorkPage {
         '/assets/images/Infographics Designs/12.png',
       ]
     },
-    
-
-
-    
   ];
+
+  scrollToPortfolio() {
+    this.portfolioSection.nativeElement.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  openLightbox(image: string) {
+    this.selectedImage = image;
+    this.lightboxActive = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox() {
+    this.lightboxActive = false;
+    document.body.style.overflow = 'auto';
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscapeKey() {
+    this.closeLightbox();
+  }
+
+  ngAfterViewInit() {
+    // Animate stats counting
+    this.animateStats();
+    
+    // Initialize animations for portfolio sections when they come into view
+    this.initScrollAnimations();
+  }
+
+  animateStats() {
+    const statElements = document.querySelectorAll('.stat-number');
+    
+    statElements.forEach(stat => {
+      const target = parseInt(stat.getAttribute('data-count') || '0', 10);
+      const duration = 2000;
+      const steps = 60;
+      const stepValue = target / steps;
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += stepValue;
+        if (current >= target) {
+          stat.textContent = target.toString();
+          clearInterval(timer);
+        } else {
+          stat.textContent = Math.round(current).toString();
+        }
+      }, duration / steps);
+    });
+  }
+
+  initScrollAnimations() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-section');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all portfolio sections
+    const sections = document.querySelectorAll('.our-work-section');
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  }
 }
