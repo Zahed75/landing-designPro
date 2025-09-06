@@ -1,6 +1,9 @@
 {
   "name": "landing-design-pro",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20.19 <21 || >=22.12"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
