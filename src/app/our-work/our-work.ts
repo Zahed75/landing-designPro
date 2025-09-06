@@ -13,7 +13,7 @@ interface PortfolioSection {
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './our-work.html',
-  styleUrls: ['./our-work.css']
+
 })
 export class OurWorkPage {
   @ViewChild('portfolioSection') portfolioSection!: ElementRef;

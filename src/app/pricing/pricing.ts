@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../enviornments/enviornment';
+
 
 interface PricingTier {
   id: number;
@@ -40,8 +42,7 @@ export class PricingPage implements OnInit {
     this.cdr.detectChanges();
     
     // Replace with your actual API endpoint
-    const apiUrl = 'http://localhost:8000/pricingTier/api/get-pricingTierList';
-    
+ const apiUrl = `${environment.apiBaseUrl}/pricingTier/api/get-pricingTierList`;    
     this.http.get<any>(apiUrl).subscribe({
       next: (response) => {
         if (response.code === 200) {
@@ -77,7 +78,7 @@ export class PricingPage implements OnInit {
   }
 
   isPopular(index: number): boolean {
-    // Make the middle tier popular (index 1 for 3 tiers)
+   
     return index === 1;
   }
 }
