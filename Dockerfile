@@ -16,5 +16,5 @@ COPY --from=builder /app/dist/landing-designPro/ /usr/share/nginx/html/
 # Optional SPA routing (uncomment if you add nginx.conf below)
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 4200
 CMD ["nginx", "-g", "daemon off;"]
