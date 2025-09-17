@@ -22,5 +22,6 @@
 
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://api.designpro.qa' 
+  // apiBaseUrl: 'https://api.designpro.qa' 
+   apiBaseUrl: ' http://127.0.0.1:8000', 
 };

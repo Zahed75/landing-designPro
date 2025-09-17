@@ -6,8 +6,10 @@ import { PricingPage } from './pricing/pricing';
 import { AboutPage } from './about/about';
 import { BlogPage } from './blog/blog';
 import { Contatc } from './contatc/contatc';
-import { HomePage } from './home/home';
+
 import { OurWorkPage } from './our-work/our-work';
+import { HomePage } from './home/home';
+
 
 export const routes: Routes = [
   { path: '', component: HomePage, title: 'Home' },
