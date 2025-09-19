@@ -1,324 +1,78 @@
-<!-- ========== HERO ========== -->
-<section class="relative isolate overflow-hidden">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 mb-5">
-          <span class="h-2 w-2 rounded-full bg-blue-600"></span>
-          Designpro
-        </div>
+<div class="home-container">
+  <!-- Welcome / CTA -->
+  <div class="welcome card">
+    <div class="welcome-text">
+      <h2>Welcome back, John!</h2>
+      <p>Here's what's happening with your cleaning services today</p>
+    </div>
+    <button pButton label="+ Book a Cleaning" class="p-button-rounded"></button>
+  </div>
 
-        <h1 class="text-4xl/tight sm:text-5xl/tight font-semibold text-slate-900">
-          Creative Design On-Demand
-        </h1>
-        <p class="mt-5 text-lg text-slate-600 max-w-xl">
-          Fast or flexible — Designpro delivers creative support to help businesses scale design needs
-          without hiring full-time designers or expensive agency fees.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <button class="rounded-lg bg-blue-600 text-white px-5 py-3 font-medium hover:bg-blue-700 transition">
-            Start your subscription
-          </button>
-          <button class="rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50 transition">
-            View pricing
-          </button>
-        </div>
+  <!-- KPI tiles -->
+  <div class="kpi-grid">
+    <div class="kpi card" *ngFor="let k of kpis">
+      <div class="kpi-top">
+        <div class="kpi-meta">{{ k.title }}</div>
+        <i class="{{k.icon}} text-xl"></i>
       </div>
-
-      <!-- Right visual mock (replace with screenshot later if you like) -->
-      <div class="relative">
-        <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.08)] p-6">
-          <div class="h-10 w-28 rounded-full bg-slate-100 mb-6"></div>
-          <div class="grid grid-cols-3 gap-4">
-            <div class="col-span-2">
-              <div class="h-8 w-2/3 rounded bg-slate-100 mb-3"></div>
-              <div class="space-y-3">
-                <div class="h-4 w-full rounded bg-slate-100"></div>
-                <div class="h-4 w-5/6 rounded bg-slate-100"></div>
-                <div class="h-4 w-4/6 rounded bg-slate-100"></div>
-              </div>
-
-              <div class="mt-6 rounded-xl border border-slate-200 p-4">
-                <div class="text-sm text-slate-500 mb-2">Client Dashboard</div>
-                <div class="text-xl font-semibold mb-4">Request · Chat · Approve</div>
-                <div class="grid sm:grid-cols-2 gap-3">
-                  <div class="rounded-lg border border-slate-200 px-4 py-3 text-left">Submit new brief</div>
-                  <div class="rounded-lg border border-slate-200 px-4 py-3 text-left">Live chat with designer</div>
-                  <div class="rounded-lg border border-slate-200 px-4 py-3 text-left">Review & request edits</div>
-                  <div class="rounded-lg border border-slate-200 px-4 py-3 text-left">Download source files</div>
-                </div>
-              </div>
-            </div>
-            <div class="hidden sm:block">
-              <div class="h-24 w-full rounded-xl bg-slate-100 mb-4"></div>
-              <div class="h-24 w-full rounded-xl bg-slate-100 mb-4"></div>
-              <div class="h-24 w-full rounded-xl bg-slate-100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="kpi-value">{{ k.value }}</div>
+      <a class="kpi-link" href="javascript:void(0)">{{ k.linkText }}</a>
     </div>
   </div>
 
-  <!-- soft glow background -->
-  <div class="pointer-events-none absolute inset-x-0 -top-16 blur-3xl" aria-hidden="true">
-    <div class="mx-auto h-64 max-w-2xl bg-gradient-to-tr from-blue-600/20 via-sky-300/20 to-indigo-200/20 opacity-60 rounded-full"></div>
-  </div>
-</section>
-
-<!-- ========== DESIGN SUBSCRIPTIONS ========== -->
-<section class="py-16 lg:py-20 bg-slate-50">
-  <div class="mx-auto max-w-6xl px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900">Design Subscriptions for everyone</h2>
-    <p class="mt-4 text-slate-600 max-w-4xl">
-      Replaces unreliable freelancers and expensive agencies for one flat monthly fee, with designs delivered every 24 hours.
-      We provide <span class="font-medium text-slate-800">unlimited design and revisions</span>.
-    </p>
-  </div>
-</section>
-
-<!-- ========== CLIENT DASHBOARD FEATURES ========== -->
-<section class="py-16 lg:py-20">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mb-10">
-      <h3 class="text-2xl sm:text-3xl font-semibold text-slate-900">All-in-one custom client dashboard</h3>
-      <p class="mt-3 text-slate-600">Manage all your designs in one place.</p>
+  <!-- Recent Bookings -->
+  <div class="card section">
+    <div class="section-header">
+      <h3>Recent Bookings</h3>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Request and Receive</div>
-        <p class="text-slate-600">Designed to help you manage the flow of business and personal communications.</p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Live Chat With Designers</div>
-        <p class="text-slate-600">Need a revision or an update? Live chat with your designer and get instant updates and changes.</p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Unlimited Requests</div>
-        <p class="text-slate-600">Request as many designs as you want. Typical delivery is 1–2 days for each design.</p>
-      </div>
-    </div>
+    <p-table [value]="recentBookings" class="p-datatable-sm" [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>BOOKING ID</th>
+          <th>CLEANER</th>
+          <th>SERVICE</th>
+          <th>DATE & TIME</th>
+          <th>AMOUNT</th>
+          <th>STATUS</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-r>
+        <tr>
+          <td>{{ r.id }}</td>
+          <td><a class="link">{{ r.cleaner }}</a></td>
+          <td>{{ r.service }}</td>
+          <td>{{ r.date }}</td>
+          <td>{{ r.amount }}</td>
+          <td><p-tag [severity]="statusSeverity(r.status)" [value]="r.status"></p-tag></td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
-</section>
 
-<!-- ========== BUILT FOR TEAMWORK ========== -->
-<section class="py-16 lg:py-20 bg-slate-50">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <h3 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8">Built For Teamwork</h3>
-
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <h4 class="text-lg font-semibold text-slate-900">Team Members</h4>
-        <p class="mt-2 text-slate-600">
-          Team members have access to request new designs, chat with designers, request revisions, and so much more.
-        </p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <h4 class="text-lg font-semibold text-slate-900">Work Better, Together</h4>
-        <p class="mt-2 text-slate-600">
-          Collaborate with designers in the live chat client portal to make real-time changes. Prioritize what matters with our priority queuing system.
-        </p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6 lg:col-span-2">
-        <h4 class="text-lg font-semibold text-slate-900">Unlimited Requests</h4>
-        <p class="mt-2 text-slate-600">
-          Request an unlimited amount of designs and receive them one at a time every 1–2 days on average.
-          Get more out of your subscription by requesting more designs.
-        </p>
-      </div>
+  <!-- Payouts Overview -->
+  <div class="card section">
+    <div class="section-header">
+      <h3>Payouts Overview</h3>
     </div>
+    <p-table [value]="payouts" class="p-datatable-sm" [tableStyle]="{'min-width': '40rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>PAYOUT ID</th>
+          <th>CLEANER</th>
+          <th>PAYOUT METHOD</th>
+          <th>AMOUNT</th>
+          <th>STATUS</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-p>
+        <tr>
+          <td>{{ p.payoutId }}</td>
+          <td><a class="link">{{ p.cleaner }}</a></td>
+          <td>{{ p.method }}</td>
+          <td>{{ p.amount }}</td>
+          <td><p-tag [severity]="statusSeverity(p.status)" [value]="p.status"></p-tag></td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
-</section>
-
-<!-- ========== 3-STEP PROCESS (renamed from Ready for business) ========== -->
-<section class="py-16 lg:py-20">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <h3 class="text-3xl sm:text-4xl font-semibold text-slate-900 text-center">Our 3 Step Process Is Super Simple To Use</h3>
-
-    <div class="mt-12 grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Step 1</div>
-        <h4 class="text-xl font-semibold text-slate-900">Submit Your Request</h4>
-        <p class="mt-2 text-slate-600">Let us know what you need. Share references and upload your brand assets.</p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Step 2</div>
-        <h4 class="text-xl font-semibold text-slate-900">Your designer gets to work</h4>
-        <p class="mt-2 text-slate-600">Get instantly matched with the best designers for the job.</p>
-      </div>
-
-      <div class="rounded-2xl bg-white border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,.06)] p-6">
-        <div class="text-sm text-blue-600 font-semibold mb-2">Step 3</div>
-        <h4 class="text-xl font-semibold text-slate-900">Receive your design</h4>
-        <p class="mt-2 text-slate-600">Give us your feedback. We’ll revise your designs as many times as needed.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FAQ (accordion) ========== -->
-<section class="py-20 lg:py-24 bg-slate-50">
-  <div class="mx-auto max-w-4xl px-6 lg:px-8">
-    <h3 class="text-3xl sm:text-4xl font-semibold text-slate-900 text-center">Frequently Asked Questions</h3>
-    <p class="mt-3 text-slate-600 text-center">Everything you need to know about Designpro subscriptions.</p>
-
-    <div class="mt-10 space-y-4">
-      <!-- Q1 -->
-      <details class="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-[0_10px_30px_rgba(0,0,0,.06)]">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium text-slate-900">1. Which Designpro subscription is right for my business?</span>
-          <span class="transition group-open:rotate-180">▾</span>
-        </summary>
-        <div class="mt-4 space-y-4 text-slate-700">
-          <p>All Designpro plans include unlimited requests, unlimited revisions, and Adobe source files.</p>
-          <div>
-            <p class="font-medium text-slate-900">Graphics</p>
-            <p>Starter plan for basic graphic design needs. Includes Graphic Designs and Custom Illustrations. Ideal for steady graphics for print & digital media (social ads, packaging).</p>
-          </div>
-          <div>
-            <p class="font-medium text-slate-900">Graphics Pro</p>
-            <p>Our most popular plan. Everything in Graphics plus Presentation Design and a Designated Designer. Great for solo entrepreneurs, scaling startups, and enterprises.</p>
-          </div>
-          <div>
-            <p class="font-medium text-slate-900">Graphics Premium</p>
-            <p>All-inclusive plan. Everything in Graphics Pro plus Motion Graphics with many same-day turnarounds. Motion Graphics turnaround is typically days, not weeks.</p>
-            <p>Ideal for agencies leveling up content creation, social media marketing, and sales while we handle high-impact visuals.</p>
-          </div>
-          <p class="text-slate-600">To learn more about each plan, go to our pricing page.</p>
-        </div>
-      </details>
-
-      <!-- Q2 -->
-      <details class="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-[0_10px_30px_rgba(0,0,0,.06)]">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium text-slate-900">2. What kind of designs can Designpro create?</span>
-          <span class="transition group-open:rotate-180">▾</span>
-        </summary>
-        <div class="mt-4 grid sm:grid-cols-2 gap-6 text-slate-700">
-          <div>
-            <p class="font-medium text-slate-900 mb-2">Graphic Design</p>
-            <ul class="list-disc ms-5 space-y-1">
-              <li>Logos</li><li>Social media graphics</li><li>Flyers</li><li>Merchandise & packaging</li>
-              <li>Landing pages (design)</li><li>Infographics</li><li>Podcast graphics</li>
-            </ul>
-
-            <p class="font-medium text-slate-900 mt-4 mb-2">Custom Illustrations</p>
-            <ul class="list-disc ms-5 space-y-1">
-              <li>Illustrated logos</li><li>Custom infographics</li><li>Portraits & mascots</li>
-              <li>Lettering & typography</li><li>Coloring books & comics</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-medium text-slate-900 mb-2">Presentation Design</p>
-            <ul class="list-disc ms-5 space-y-1">
-              <li>Custom decks & ready-to-use templates</li>
-              <li>Custom embedded graphics</li>
-              <li>Editable formats and source files</li>
-              <li>PowerPoint or Google Slides</li>
-              <li>Animations and transitions included</li>
-            </ul>
-
-            <p class="font-medium text-slate-900 mt-4 mb-2">Motion Graphics</p>
-            <ul class="list-disc ms-5 space-y-1">
-              <li>Animated logos & typography</li><li>Animated ads</li><li>UI/UX animation</li>
-              <li>Graphic loops</li><li>Product animations & explainers</li><li>Template editing</li>
-            </ul>
-          </div>
-        </div>
-      </details>
-
-      <!-- Q3 -->
-      <details class="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-[0_10px_30px_rgba(0,0,0,.06)]">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium text-slate-900">3. What kind of designs doesn’t Designpro offer?</span>
-          <span class="transition group-open:rotate-180">▾</span>
-        </summary>
-        <div class="mt-4 text-slate-700">
-          <p>To maintain quality and speed, we don’t support:</p>
-          <ul class="list-disc ms-5 space-y-1">
-            <li>Extremely complex or fine-art illustrations</li>
-            <li>Fillable/interactive PDFs</li>
-            <li>Complex photo manipulation</li>
-            <li>Digital painting & game assets</li>
-            <li>3D/CAD projects</li>
-            <li>HTML, CSS, UI/UX design</li>
-            <li>Programming/coding/development</li>
-            <li>Unsupported file formats</li>
-            <li>Trademarked names, brands, or quotes</li>
-            <li>Content writing/manual typing</li>
-            <li>Inappropriate or offensive requests</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Q4 -->
-      <details class="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-[0_10px_30px_rgba(0,0,0,.06)]">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium text-slate-900">4. What details should my design request include?</span>
-          <span class="transition group-open:rotate-180">▾</span>
-        </summary>
-        <div class="mt-4 text-slate-700 space-y-3">
-          <p>We ask for input across three simple areas:</p>
-          <ol class="list-decimal ms-5 space-y-1">
-            <li>Describe the design you need.</li>
-            <li>Select your brand profile.</li>
-            <li>Attach any assets, images, and copy needed.</li>
-          </ol>
-          <p>
-            Our guided, AI-powered smart request form (inside the Designpro Platform) lets you set dimensions & file types,
-            upload files, and even search stock images. We also recommend creating Brand Profiles
-            (logos, colors, fonts, images) so designers stay on-brand. Create unlimited Brand Profiles for multiple brands.
-          </p>
-        </div>
-      </details>
-
-      <!-- Q5 -->
-      <details class="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-[0_10px_30px_rgba(0,0,0,.06)]">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium text-slate-900">5. What’s included with my monthly subscription fee?</span>
-          <span class="transition group-open:rotate-180">▾</span>
-        </summary>
-        <div class="mt-4 text-slate-700 space-y-4">
-          <p>All plans include unlimited requests, unlimited revisions, and Adobe source files.</p>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="rounded-xl border border-slate-200 p-4">
-              <p class="font-medium text-slate-900">Graphics<br><span class="text-slate-500">($499/mo)</span></p>
-              <ul class="list-disc ms-5 mt-2 space-y-1">
-                <li>✅ Graphic Design</li>
-                <li>✅ Custom Illustrations</li>
-              </ul>
-              <a class="inline-block mt-3 text-blue-600 hover:underline" href="#">Learn more</a>
-            </div>
-            <div class="rounded-xl border border-slate-200 p-4">
-              <p class="font-medium text-slate-900">Graphics Pro<br><span class="text-slate-500">($955/mo)</span></p>
-              <ul class="list-disc ms-5 mt-2 space-y-1">
-                <li>✅ Graphic Design</li>
-                <li>✅ Custom Illustrations</li>
-                <li>✅ Presentation Design</li>
-              </ul>
-              <a class="inline-block mt-3 text-blue-600 hover:underline" href="#">Learn more</a>
-            </div>
-            <div class="rounded-xl border border-slate-200 p-4">
-              <p class="font-medium text-slate-900">Graphics Premium<br><span class="text-slate-500">($1,695/mo)</span></p>
-              <ul class="list-disc ms-5 mt-2 space-y-1">
-                <li>✅ Graphic Design</li>
-                <li>✅ Custom Illustrations</li>
-                <li>✅ Presentation Design</li>
-                <li>✅ Motion Graphics</li>
-              </ul>
-              <a class="inline-block mt-3 text-blue-600 hover:underline" href="#">Learn more</a>
-            </div>
-          </div>
-          <p class="text-slate-600">To learn more about each plan, go to our pricing page.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
+</div>

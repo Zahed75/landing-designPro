@@ -1,145 +1,47 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardModule, ButtonModule, TableModule, TagModule, RippleModule],
   templateUrl: './home.html',
-
+  styleUrls: ['./home.css']
 })
-export class HomePage {
-  protected title = 'landing-designPro';
-
-  tools = [
-    {
-      name: 'Gmail',
-      icon: '/assets/icons/gmail.svg',
-      description: 'Secure, smart, and easy to use email',
-      color: '#EA4335'
-    },
-    {
-      name: 'Drive',
-      icon: '/assets/icons/google-drive.svg',
-      description: 'Store, share, and collaborate on files',
-      color: '#00AC47'
-    },
-    {
-      name: 'Meet',
-      icon: '/assets/icons/google-meet.svg',
-      description: 'Premium video meetings for everyone',
-      color: '#00897B'
-    },
-    {
-      name: 'Calendar',
-      icon: '/assets/icons/google-calendar.svg',
-      description: 'Organize your schedule and share with others',
-      color: '#4285F4'
-    },
-    {
-      name: 'Chat',
-      icon: '/assets/icons/google-chat-icon.svg',
-      description: 'Message-based collaboration space',
-      color: '#00AC47'
-    },
-    {
-      name: 'Docs',
-      icon: '/assets/icons/icons8-google-docs.svg',
-      description: 'Create and edit documents',
-      color: '#4285F4'
-    },
-    {
-      name: 'Sheets',
-      icon: '/assets/icons/icons8-google-sheets.svg',
-      description: 'Create and edit spreadsheets',
-      color: '#0F9D58'
-    },
-    {
-      name: 'Slides',
-      icon: '/assets/icons/icons8-google-slides.svg',
-      description: 'Create and edit presentations',
-      color: '#F4B400'
-    }
+export class Home {
+  kpis = [
+    { title: "Today's Bookings", value: 13, icon: 'pi pi-calendar', linkText: 'View All' },
+    { title: "Today's Revenue", value: '£2,489.02', icon: 'pi pi-dollar', linkText: 'View Report' },
+    { title: 'Active Cleaners', value: 43, icon: 'pi pi-users', linkText: 'View All Cleaners' },
+    { title: 'Pending Disputes', value: 3, icon: 'pi pi-exclamation-circle', linkText: 'View Disputes' }
   ];
 
-  activeToolIndex: number | null = null;
-
-  public carouselCards: Array<{image: string, icon: string, label: string, title: string, description: string}> = [
-    {
-      image: '/assets/calendar.png',
-      icon: '/assets/icons/google-calendar.svg',
-      label: 'Calendar',
-      title: 'Simplify booking with appointment scheduling',
-      description: 'Let customers book time with you directly within Google Calendar via a personal booking page.'
-    },
-    {
-      image: '/assets/contract.png',
-      icon: '/assets/icons/icons8-google-docs.svg',
-      label: 'Docs',
-      title: 'Streamline contract management with eSignature',
-      description: 'Request electronic signatures and easily manage vendor agreements, customer contracts, and more.'
-    },
-    {
-      image: '/assets/drive.png',
-      icon: '/assets/icons/google-drive.svg',
-      label: 'Drive',
-      title: 'Securely store your data in the cloud',
-      description: 'Store your data in Google\'s security-by-design cloud infrastructure, with up to 5TB per user.'
-    },
-    {
-      image: '/assets/meet.png',
-      icon: '/assets/icons/google-meet.svg',
-      label: 'Meet',
-      title: 'Connect seamlessly with video conferencing',
-      description: 'Present professionally with high-quality video and noise cancellation. Record and transcribe to capture every detail.'
-    },
-    {
-      image: '/assets/gemini.png',
-      icon: '/assets/icons/gemini.svg',
-      label: 'Gemini',
-      title: 'Work smarter with AI',
-      description: 'Craft compelling content, generate data insights, and conduct deep research with the help of AI.'
-    }
+  recentBookings = [
+    { id: 'IC#2508150010', cleaner: 'Joseph Tribbiani', service: 'End-of-Tenancy',      date: '15 Aug 2025, 10:00 AM', amount: '£299.99', status: 'Payment Pending' },
+    { id: 'IC#2508150011', cleaner: 'Joseph Tribbiani', service: 'Airbnb / Holiday Let', date: '15 Aug 2025, 10:00 AM', amount: '£299.99', status: 'Pending' },
+    { id: 'IC#2508150012', cleaner: 'Joseph Tribbiani', service: 'Office / HMO',         date: '15 Aug 2025, 10:00 AM', amount: '£299.99', status: 'Pending' },
+    { id: 'IC#2508150013', cleaner: 'Joseph Tribbiani', service: 'Office / HMO',         date: '15 Aug 2025, 10:00 AM', amount: '£299.99', status: 'Scheduled' },
+    { id: 'IC#2508150014', cleaner: 'Joseph Tribbiani', service: 'Office / HMO',         date: '15 Aug 2025, 10:00 AM', amount: '£299.99', status: 'Scheduled' }
   ];
-  public carouselIndex: number = 0;
 
-  public get visibleCarouselCards() {
-    return this.carouselCards.slice(this.carouselIndex, this.carouselIndex + 3);
-  }
+  payouts = [
+    { payoutId: 'PO#10293', cleaner: 'Joseph Tribbiani', method: 'Bank Transfer', amount: '£250.00', status: 'Processing' },
+    { payoutId: 'PO#10294', cleaner: 'Rachel Green',     method: 'Bank Transfer', amount: '£300.00', status: 'Completed' }
+  ];
 
-  public nextCarousel() {
-    console.log('Next arrow clicked', this.carouselIndex);
-    if (this.carouselIndex < this.carouselCards.length - 3) {
-      this.carouselIndex++;
+  statusSeverity(status: string) {
+    switch (status) {
+      case 'Scheduled': return 'info';
+      case 'Pending': return 'warning';
+      case 'Payment Pending': return 'warning';
+      case 'Completed': return 'success';
+      case 'Processing': return 'info';
+      default: return 'secondary';
     }
   }
-
-  public prevCarousel() {
-    console.log('Prev arrow clicked', this.carouselIndex);
-    if (this.carouselIndex > 0) {
-      this.carouselIndex--;
-    }
-  }
-
-  setActiveTool(index: number) {
-    this.activeToolIndex = index;
-  }
-
-  clearActiveTool() {
-    this.activeToolIndex = null;
-  }
-
-  public isHeroChatDropdownOpen = false;
-
-  public toggleHeroChatDropdown() {
-    this.isHeroChatDropdownOpen = !this.isHeroChatDropdownOpen;
-    console.log('Dropdown open:', this.isHeroChatDropdownOpen);
-  }
-
-  public isChatDropdownOpen = false;
-
-  toggleChatDropdown(event: Event) {
-    event.preventDefault();
-    this.isChatDropdownOpen = !this.isChatDropdownOpen;
-  }
-} 
+}

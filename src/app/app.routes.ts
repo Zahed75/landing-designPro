@@ -8,11 +8,12 @@ import { BlogPage } from './blog/blog';
 import { Contatc } from './contatc/contatc';
 
 import { OurWorkPage } from './our-work/our-work';
-import { HomePage } from './home/home';
+import { Home } from './home/home';
+
 
 
 export const routes: Routes = [
-  { path: '', component: HomePage, title: 'Home' },
+  { path: '', component: Home, title: 'Home' },
   { path: 'about', component: AboutPage, title: 'About Us' },
   { path: 'blog', component: BlogPage, title: 'Blog' },
   { path: 'contact', component: Contatc, title: 'Contact Us' },
