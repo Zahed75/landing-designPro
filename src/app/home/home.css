@@ -1,77 +1,121 @@
-/* Body wrapper (no sidebar/top) */
-.home-container {
-  padding: 1.25rem;
-  display: grid;
-  gap: 1.25rem;
-}
-
-/* Card style to match screenshot */
-.card {
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-
-/* Welcome bar */
-.welcome {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.welcome-text h2 {
-  margin: 0 0 .25rem 0;
-  font-weight: 700;
-}
-.welcome-text p {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  color: var(--text-color-secondary);
+  padding: 0;
+  background-color: #f1f1f1;
 }
 
-/* KPI tiles */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.25rem;
+.landing-page {
+  padding: 20px;
 }
-.kpi {
+
+header {
   display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-.kpi-top {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-.kpi-meta { color: var(--text-color-secondary); }
-.kpi-value { font-size: 1.5rem; font-weight: 600; }
-.kpi-link { margin-top: .25rem; display: inline-block; }
-
-/* Section header */
-.section-header {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: .75rem;
-}
-.section-header h3 { margin: 0; font-weight: 600; }
-
-/* Link style for cleaner names */
-.link { text-decoration: underline; }
-
-/* Table polish on dark or light */
-.p-datatable .p-datatable-thead > tr > th {
-  background: var(--surface-section, var(--p-surface-100));
-  border-color: var(--surface-border);
-}
-.p-datatable .p-datatable-tbody > tr > td {
-  border-color: var(--surface-border);
+  align-items: center;
+  background-color: #fff;
+  padding: 50px 20px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 1024px) {
-  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+header .header-content {
+  flex: 1;
+  text-align: left;
 }
-@media (max-width: 640px) {
-  .kpi-grid { grid-template-columns: 1fr; }
-  .welcome { flex-direction: column; gap: .75rem; align-items: flex-start; }
+
+header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.cta-btn {
+  background-color: #0070f3;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.cta-btn:hover {
+  background-color: #005bb5;
+}
+
+.header-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.gemini-section {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 8px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.gemini-section img {
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.benefit-item {
+  flex: 1;
+  text-align: center;
+}
+
+.benefits h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.process, .faq {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.process-step {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.faq ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.faq li {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.faq p {
+  font-size: 1em;
+  color: #555;
 }
