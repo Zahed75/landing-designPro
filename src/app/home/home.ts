@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import "primeicons/primeicons.css";
+import { RouterLink } from "@angular/router";
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
 })
 export class HomePage {
@@ -153,7 +155,7 @@ export class HomePage {
     }
   }
 
-  // Business accordion functionality
+  // Business accordion functionality - ADD THIS MISSING CODE
   public activeBusinessAccordionIndex: number | null = null;
 
   toggleBusinessAccordion(index: number) {
@@ -161,6 +163,17 @@ export class HomePage {
       this.activeBusinessAccordionIndex = null;
     } else {
       this.activeBusinessAccordionIndex = index;
+    }
+  }
+
+  // FAQ accordion functionality
+  public activeFaqIndex: number | null = null;
+
+  toggleFaq(index: number) {
+    if (this.activeFaqIndex === index) {
+      this.activeFaqIndex = null;
+    } else {
+      this.activeFaqIndex = index;
     }
   }
 }
