@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import "primeicons/primeicons.css";
 @Component({
   selector: 'app-home-page',
   standalone: true,
