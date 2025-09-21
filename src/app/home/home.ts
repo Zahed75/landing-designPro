@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -175,5 +174,20 @@ export class HomePage {
     } else {
       this.activeFaqIndex = index;
     }
+  }
+
+  // ---------- Smooth scroll for tabs (minimal, no UI change) ----------
+  scrollToSection(id: string) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const y = el.getBoundingClientRect().top + window.scrollY - this.getStickyOffset();
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  private getStickyOffset(): number {
+    // Compensate for the sticky tab bar height (if present)
+    const sticky = document.querySelector('.sticky') as HTMLElement | null;
+    return sticky ? sticky.offsetHeight + 8 : 0;
   }
 }

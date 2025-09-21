@@ -1,6 +1,6 @@
 <main class="flex-grow bg-white font-sans">
   <!-- Hero Section -->
-  <section class="pt-24 pb-16 border-b border-[#e0e3e7] animate-fade-in-up">
+  <section id="section-design" class="pt-24 pb-16 border-b border-[#e0e3e7] animate-fade-in-up">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
       <div class="flex-1">
         <h1 class="text-5xl font-extrabold text-[#1a202c] mb-6 leading-tight">
@@ -62,23 +62,27 @@
     style="backdrop-filter: blur(2px);">
     <div
       class="relative flex bg-white rounded-full shadow border border-[#e0e3e7] overflow-hidden mx-4 transition-all duration-300">
-      <button
-        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-semibold focus:outline-none transition text-[#202124] whitespace-nowrap">See
-        what's new</button>
-      <button
-        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Messaging</button>
-      <button
-        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Collaboration</button>
-      <button
-        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">AI
-        in Chat</button>
-      <button
+      <button (click)="scrollToSection('section-design')"
+        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-semibold focus:outline-none transition text-[#202124] whitespace-nowrap">Design
+    </button>
+      <button (click)="scrollToSection('section-dashboard')"
+        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Dashboard</button>
+      <button (click)="scrollToSection('section-collection')"
+        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Collection</button>
+      <button (click)="scrollToSection('section-allinone')"
+        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">All-in-one
+        </button>
+      <button (click)="scrollToSection('section-safety')"
         class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Safety</button>
+
+           <button (click)="scrollToSection('section-faq')"
+        class="relative z-10 px-4 sm:px-8 py-3 text-sm font-medium focus:outline-none transition text-[#5f6368] hover:text-[#202124] whitespace-nowrap">Learn More</button>
     </div>
   </div>
 
+
   <!-- Gemini/AI Feature Highlight -->
-  <section class="py-16 border-b border-[#e0e3e7] animate-fade-in-up">
+  <section id="section-dashboard" class="py-16 border-b border-[#e0e3e7] animate-fade-in-up">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
       <div class="flex-1 flex justify-center">
         <img src="assets/images/ED/3.png" alt="Gemini in Chat"
@@ -97,7 +101,7 @@
   </section>
 
   <!-- Feature Grid: Made for modern messaging, powered by AI -->
-  <section class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
+  <section id="section-collection" class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
       <!-- Left Side: Image -->
       <div class="flex-1 flex justify-center">
@@ -207,7 +211,7 @@
   </section>
 
   <!-- New Accordion Section: All-in-one Team Platform -->
-  <section class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
+  <section id="section-allinone" class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
       <!-- Left Side: Image -->
       <div class="flex-1 flex justify-center">
@@ -360,7 +364,7 @@
   </section>
 
   <!-- Safe and secure (3-column) -->
-  <section class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
+  <section id="section-safety" class="py-20 border-b border-[#e0e3e7] animate-fade-in-up">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-3xl font-extrabold text-[#202124] mb-12 text-center">Safe and secure</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -390,7 +394,7 @@
   <!-- FAQ Section -->
 
   <!-- FAQ Section -->
-  <section class="py-16 bg-gradient-to-br from-[#f8fafc] via-white to-[#f0f7ff] animate-fade-in-up">
+  <section id="section-faq" class="py-16 bg-gradient-to-br from-[#f8fafc] via-white to-[#f0f7ff] animate-fade-in-up">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-extrabold text-[#202124] mb-4">Frequently Asked Questions</h2>
