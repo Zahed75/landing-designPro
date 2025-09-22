@@ -130,6 +130,7 @@ export class OurWorkPage {
         '/assets/images/Print Designs/23.png',
         '/assets/images/Print Designs/24.png',
         '/assets/images/Print Designs/25.png',
+        '/assets/images/Print Designs/26.jpeg',
       ]
     },
     {
@@ -151,7 +152,6 @@ export class OurWorkPage {
         '/assets/images/Branding logo/13.png',
         '/assets/images/Branding logo/14.png',
         '/assets/images/Branding logo/15.png',
-        '/assets/images/Branding logo/16.png',
         '/assets/images/Branding logo/17.png',
         '/assets/images/Branding logo/18.png',
         '/assets/images/Branding logo/19.png',
@@ -163,6 +163,7 @@ export class OurWorkPage {
         '/assets/images/Branding logo/25.png',
         '/assets/images/Branding logo/26.png',
         '/assets/images/Branding logo/27.png',
+        '/assets/images/Branding logo/28.jpeg',
       ]
     },
     {
@@ -179,9 +180,11 @@ export class OurWorkPage {
         '/assets/images/Infographics Designs/8.png',
         '/assets/images/Infographics Designs/9.png',
         '/assets/images/Infographics Designs/10.png',
-        '/assets/images/Infographics Designs/10.png',
+      
         '/assets/images/Infographics Designs/11.png',
         '/assets/images/Infographics Designs/12.png',
+        '/assets/images/Infographics Designs/13.jpeg',
+        '/assets/images/Infographics Designs/14.jpeg',
       ]
     },
   ];
