@@ -25,4 +25,17 @@
 }
 .pricing-btn:active {
   transform: scale(0.97);
-} 
+}
+
+/* Lock icon styling */
+.lock-icon {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pricing-card {
+    margin-bottom: 1.5rem;
+  }
+}
