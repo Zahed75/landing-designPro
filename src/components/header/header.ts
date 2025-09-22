@@ -77,7 +77,7 @@ export class Header implements OnInit {
     {
       column: 'CONNECT',
       items: [
-        { title: 'Refer Google Workspace', description: 'Earn rewards with our Referral Program', href: '#' }
+        { title: 'Reffer Designpro', description: 'Earn rewards with our Referral Program', href: '#' }
       ]
     }
   ];
