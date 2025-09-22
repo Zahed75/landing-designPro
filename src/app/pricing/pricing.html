@@ -22,8 +22,25 @@
       <pre class="text-xs text-[#202124] bg-[#f8f9fa] p-3 rounded overflow-auto">{{ statusData | json }}</pre>
     </div>
 
+    <!-- Sticky Pricing Header -->
+    <div class="sticky-pricing-header sticky top-0 bg-white z-40 py-4 border-b border-[#e0e3e7] shadow-sm hidden transition-all duration-300 transform -translate-y-full opacity-0">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-bold text-[#1a202c]">Compare Plans</h3>
+          <div class="flex space-x-4">
+            <button *ngFor="let tier of pricingTiers; let i = index" 
+                    (click)="onStickyButtonClick(tier)"
+                    [class]="'px-6 py-2 rounded-lg font-medium transition text-sm ' +
+                             (isBestValue(i) ? 'bg-[#1a73e8] text-white hover:bg-[#1765c1]' : 'bg-[#fff] text-[#1a73e8] border border-[#1a73e8] hover:bg-[#f5faff]')">
+              {{ getButtonText(tier) }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Pricing Cards -->
-    <div *ngIf="!loading && !error" class="grid md:grid-cols-4 gap-6 md:gap-8">
+    <div *ngIf="!loading && !error" class="grid md:grid-cols-4 gap-6 md:gap-8 mb-16">
       <div *ngFor="let tier of pricingTiers; let i = index"
            [class]="'pricing-card bg-white rounded-2xl shadow-lg p-8 flex flex-col relative ' +
                     (isBestValue(i) ? 'border-2 border-[#1a73e8]' : 'border border-[#e0e3e7]')">
@@ -41,7 +58,7 @@
         <!-- Price -->
         <div class="text-3xl font-extrabold mb-1 text-[#1a73e8] flex items-end">
           {{ formatPrice(tier.price) }}
-          <span class="text-base font-medium ml-1 text-[#5f6368]">{{ '/' + tier.interval }}</span>
+          <span *ngIf="tier.price !== 0" class="text-base font-medium ml-1 text-[#5f6368]">{{ '/' + tier.interval }}</span>
         </div>
 
         <!-- Plan Description -->
@@ -53,9 +70,9 @@
                 [disabled]="cardButtonLoading[tier.id]"
                 [class]="'pricing-btn w-full text-center px-4 py-2 rounded-lg font-medium transition mb-6 ' +
                          (isBestValue(i) ? 'bg-[#1a73e8] text-white hover:bg-[#1765c1]' : 'bg-[#fff] text-[#1a73e8] border border-[#1a73e8] hover:bg-[#f5faff]')">
-          <span *ngIf="!cardButtonLoading[tier.id]">Get Started</span>
+          <span *ngIf="!cardButtonLoading[tier.id]">{{ getButtonText(tier) }}</span>
           <span *ngIf="cardButtonLoading[tier.id]" class="inline-flex items-center">
-            <span class="animate-spin rounded-full h-4 w-4 border-b-2 mr-2"></span> Starting…
+            <span class="animate-spin rounded-full h-4 w-4 border-b-2 mr-2 border-white"></span> Starting…
           </span>
         </button>
 
@@ -87,6 +104,246 @@
       </div>
     </div>
 
+    <!-- Detailed Pricing Comparison Table -->
+    <div *ngIf="!loading && !error" class="bg-white rounded-2xl shadow-lg overflow-hidden mb-16">
+      <div class="p-8 border-b border-[#e0e3e7] bg-gradient-to-r from-blue-50 to-indigo-50">
+        <h3 class="text-2xl font-bold text-[#1a202c] mb-2">Complete Plan Comparison</h3>
+        <p class="text-[#5f6368]">Compare all features and services across our plans to find the perfect fit for your creative needs</p>
+      </div>
+
+      <!-- Productivity & Collaboration Section -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+          Productivity & Collaboration
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Features</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Gmail Business email</td>
+                <td *ngFor="let tier of pricingTiers" class="text-center py-4">
+                  <span class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+              <tr class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Custom email for your business</td>
+                <td *ngFor="let tier of pricingTiers" class="text-center py-4">
+                  <span class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+              <tr class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Phishing and spam protection that blocks more than 99.9% of attacks</td>
+                <td *ngFor="let tier of pricingTiers" class="text-center py-4">
+                  <span class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+              <tr class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Ad-free email experience</td>
+                <td *ngFor="let tier of pricingTiers" class="text-center py-4">
+                  <span class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+              <tr class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Gemini in Workspace apps</td>
+                <td *ngFor="let tier of pricingTiers; let i = index" class="text-center py-4">
+                  <span *ngIf="i === 0" class="text-sm text-gray-600 font-medium">Limited</span>
+                  <span *ngIf="i > 0" class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">Enterprise-grade security and privacy</td>
+                <td *ngFor="let tier of pricingTiers" class="text-center py-4">
+                  <span class="feature-indicator feature-included">✓</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Services Section -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+          Services
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Service Type</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let service of comparisonData.services" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ service.name }}</td>
+                <td *ngFor="let tier of service.tiers" class="text-center py-4">
+                  <span *ngIf="tier.included" class="feature-indicator feature-included">✓</span>
+                  <span *ngIf="!tier.included" class="feature-indicator feature-locked">🔒</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Creative Automations & Integrations -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+          Creative Automations & Integrations
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Feature</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let feature of comparisonData.automations" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ feature.name }}</td>
+                <td *ngFor="let tier of feature.tiers" class="text-center py-4">
+                  <span *ngIf="tier.included" class="feature-indicator feature-included">✓</span>
+                  <span *ngIf="!tier.included" class="feature-indicator feature-locked">🔒</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Security & Administration -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+          Security & Administration
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Security Feature</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let security of comparisonData.security" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ security.name }}</td>
+                <td *ngFor="let tier of security.tiers" class="text-center py-4">
+                  <span *ngIf="tier.included" class="feature-indicator feature-included">✓</span>
+                  <span *ngIf="!tier.included" class="feature-indicator feature-locked">🔒</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Creative File Types -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+          Creative File Types
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">File Format</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fileType of comparisonData.fileTypes" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ fileType.name }}</td>
+                <td *ngFor="let tier of fileType.tiers" class="text-center py-4">
+                  <span *ngIf="tier.included" class="feature-indicator feature-included">✓</span>
+                  <span *ngIf="!tier.included" class="feature-indicator feature-locked">🔒</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Creative Management Platform -->
+      <div class="p-8 border-b border-[#e0e3e7]">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-indigo-500 rounded-full mr-2"></span>
+          Creative Management Platform
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Platform Feature</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let platform of comparisonData.platform" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ platform.name }}</td>
+                <td *ngFor="let tier of platform.tiers" class="text-center py-4">
+                  <span *ngIf="tier.included" class="feature-indicator feature-included">✓</span>
+                  <span *ngIf="!tier.included" class="text-sm text-gray-600 font-medium">{{ tier.value }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Turnaround Times -->
+      <div class="p-8">
+        <h4 class="text-lg font-semibold text-[#1a202c] mb-6 flex items-center">
+          <span class="w-3 h-3 bg-teal-500 rounded-full mr-2"></span>
+          Turnaround Times
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full comparison-table">
+            <thead>
+              <tr class="border-b border-[#e0e3e7]">
+                <th class="text-left py-4 font-semibold text-[#1a202c]">Service Type</th>
+                <th *ngFor="let tier of pricingTiers" class="text-center py-4 font-semibold text-[#1a202c]">
+                  {{ tier.subtitle }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let turnaround of comparisonData.turnaround" class="border-b border-[#e0e3e7] hover:bg-gray-50">
+                <td class="py-4 font-medium text-[#1a202c]">{{ turnaround.name }}</td>
+                <td *ngFor="let time of turnaround.times" class="text-center py-4 text-sm text-gray-700 font-medium">
+                  {{ time }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- Checkout Modal -->
     <div *ngIf="showCheckoutModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6">
@@ -113,7 +370,7 @@
                     class="px-4 py-2 rounded-lg bg-[#1a73e8] text-white hover:bg-[#1765c1]">
               <span *ngIf="!startingCheckout">Continue to Checkout</span>
               <span *ngIf="startingCheckout" class="inline-flex items-center">
-                <span class="animate-spin rounded-full h-4 w-4 border-b-2 mr-2"></span> Redirecting…
+                <span class="animate-spin rounded-full h-4 w-4 border-b-2 mr-2 border-white"></span> Redirecting…
               </span>
             </button>
           </div>
