@@ -2,6 +2,7 @@
 .pricing-card {
   transition: box-shadow 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), border-color 0.25s;
   cursor: pointer;
+  min-height: 600px; /* Consistent height for all cards */
 }
 .pricing-card:hover, .pricing-card:focus-within {
   box-shadow: 0 12px 32px 0 rgba(26,115,232,0.13), 0 2px 8px 0 rgba(60,64,67,0.10);
@@ -27,15 +28,44 @@
   transform: scale(0.97);
 }
 
-/* Sticky Header Styles */
+/* Sticky Header Styles - FIXED ALIGNMENT */
 .sticky-pricing-header {
   backdrop-filter: blur(10px);
   transition: all 0.3s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
-.sticky-pricing-header:not(.hidden) {
+.sticky-pricing-header.show {
   transform: translateY(0);
   opacity: 1;
+}
+
+.sticky-pricing-header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Fix alignment to match pricing table */
+.sticky-pricing-header .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.sticky-pricing-header .flex.space-x-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 75%;
+  align-items: center;
+}
+
+.sticky-pricing-header .flex.space-x-4 button {
+  width: 100%;
+  max-width: 200px;
+  justify-self: center;
 }
 
 /* Comparison Table Styles */
@@ -43,6 +73,7 @@
   border-collapse: collapse;
   width: 100%;
   min-width: 800px;
+  table-layout: fixed;
 }
 
 .comparison-table th,
@@ -57,6 +88,16 @@
   font-weight: 600;
   position: sticky;
   top: 0;
+}
+
+.comparison-table th:first-child {
+  width: 30%;
+  min-width: 200px;
+}
+
+.comparison-table th:not(:first-child) {
+  width: calc(70% / 4);
+  min-width: 150px;
 }
 
 .comparison-table tr:hover {
@@ -94,22 +135,29 @@
 @media (max-width: 768px) {
   .pricing-card {
     margin-bottom: 1.5rem;
+    min-height: auto;
+  }
+  
+  .sticky-pricing-header .flex.space-x-4 {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
   }
   
   .sticky-pricing-header .flex {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   
-  .sticky-pricing-header .flex button {
-    width: 100%;
-    text-align: center;
-    font-size: 0.875rem;
-    padding: 8px 12px;
+  .sticky-pricing-header .flex.space-x-4 button {
+    max-width: 100%;
+    font-size: 0.75rem;
+    padding: 8px 16px;
   }
   
   .comparison-table {
     font-size: 0.875rem;
+    min-width: 600px;
   }
   
   .comparison-table th,
@@ -128,4 +176,62 @@ html {
   border: 2px solid transparent;
   border-top: 2px solid currentColor;
   border-right: 2px solid currentColor;
+}
+
+/* Best value highlight */
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+/* Ensure proper spacing and alignment */
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.grid.md\:grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Mobile optimization */
+@media (max-width: 1024px) {
+  .grid.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  
+  .sticky-pricing-header .flex.space-x-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid.md\:grid-cols-4 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .sticky-pricing-header .flex.space-x-4 {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Sticky header button hover effects */
+.sticky-pricing-header button {
+  transition: all 0.2s ease-in-out;
+}
+
+.sticky-pricing-header button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
+}
+
+.sticky-pricing-header button:active {
+  transform: translateY(0);
 }
